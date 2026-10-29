@@ -1,6 +1,40 @@
 # Portfolio
 
-A general-purpose Vue 3 + Vite starter with the tooling decisions already made.
+My portfolio site, built from my Vue 3 + Vite starter.
+
+## Editing portfolio items
+
+Portfolio items live in [`src/data/portfolio.json`](src/data/portfolio.json). The homepage shows the nine most recent, sorted by `date`, with a "See all work" link to `/work`, which shows every item.
+
+1. Put the preview image in `public/portfolio/`. A 4:3 image around 1200×900 works best.
+2. Add an entry to `portfolio.json`:
+
+```json
+{
+  "slug": "my-project",
+  "title": "My Project",
+  "date": "2026-10-01",
+  "image": "portfolio/my-project.jpg",
+  "imageAlt": "Screenshot of the My Project dashboard",
+  "summary": "One or two sentences about the project and your role.",
+  "url": "https://example.com",
+  "tags": ["Vue", "UI/UX"]
+}
+```
+
+Each item also gets its own page at `/work/<slug>`, which the homepage card links to. That page uses the same entry, plus these optional fields:
+
+```json
+{
+  "role": "Sole front-end developer",
+  "description": ["First paragraph.", "Second paragraph."],
+  "gallery": [{ "image": "portfolio/my-project-2.jpg", "alt": "Mobile layout" }]
+}
+```
+
+`url`, `tags`, `role`, `description` and `gallery` are all optional. `url` shows as a "Visit project" button on the item's page. `image` can also be a full `https://` URL. Field types are defined in [`src/data/portfolio.ts`](src/data/portfolio.ts), and `npm test` checks that every slug is unique, every date is valid and every local image (including gallery images) exists.
+
+The intro blurb is in `src/locales/en.json` (and `es.json`) under `home`.
 
 | Area      | Choice                                                                                     |
 | --------- | ------------------------------------------------------------------------------------------ |
@@ -44,19 +78,20 @@ npm run dev
 ```
 src/
   assets/        # global CSS + Tailwind theme tokens
-  components/    # shared UI (BaseButton, AppHeader, LocaleSwitcher)
+  components/    # shared UI (BaseButton, AppHeader, LocaleSwitcher, PortfolioCard, PortfolioGrid)
   composables/   # reusable useX() logic (useDarkMode)
+  data/          # portfolio.json and its types
   i18n/          # vue-i18n instance, setLocale(), supported locales
   layouts/       # app shells (DefaultLayout: skip link, header, main, footer)
   locales/       # en.json (source of truth), es.json
   router/        # routes + typed RouteMeta
   services/      # API layer (typed fetch wrapper + HttpError)
-  stores/        # Pinia stores
+  stores/        # Pinia stores (none yet)
   views/         # route-level pages
   App.vue
   main.ts
 e2e/             # Playwright specs
-public/          # static files, PWA icons
+public/          # static files, PWA icons, portfolio/ preview images
 ```
 
 Unit tests live next to the code they cover in `__tests__/` folders.
@@ -82,6 +117,10 @@ Unit tests live next to the code they cover in `__tests__/` folders.
 
 - `eslint-plugin-vuejs-accessibility` runs as part of `npm run lint`.
 - The layout includes a skip link and a focusable `<main id="main">`. Nav links get `aria-current="page"`, and focus rings use `:focus-visible`.
+
+## Hosting
+
+The site uses HTML5 history routing (`/work/my-project`, not `/#/work/my-project`), so the static host must serve `index.html` for any path it doesn't have a file for. Netlify, Vercel and Cloudflare Pages do this with a one-line rewrite rule. Without it, refreshing an item page returns the host's 404.
 
 ## PWA
 

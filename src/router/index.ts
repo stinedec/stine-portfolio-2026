@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, type RouteLocationNormalized } from 'vue-router'
 
+import { getItemBySlug } from '@/data/portfolio'
 import { i18n } from '@/i18n'
 import HomeView from '@/views/HomeView.vue'
 
@@ -7,6 +8,8 @@ declare module 'vue-router' {
   interface RouteMeta {
     /** i18n key used for the document title. */
     titleKey?: string
+    /** Builds the document title from the route. Takes priority over titleKey. */
+    title?: (route: RouteLocationNormalized) => string | undefined
   }
 }
 
@@ -27,18 +30,46 @@ const router = createRouter({
       meta: { titleKey: 'nav.about' },
     },
     {
+      path: '/work',
+      name: 'work',
+      component: () => import('@/views/WorkView.vue'),
+      meta: { titleKey: 'nav.work' },
+    },
+    {
+      path: '/work/:slug',
+      name: 'portfolio-item',
+      component: () => import('@/views/PortfolioItemView.vue'),
+      props: true,
+      meta: { title: (route) => getItemBySlug(String(route.params.slug))?.title },
+      // Unknown slugs show the 404 page, keeping the URL the visitor typed.
+      beforeEnter: (to) => {
+        if (getItemBySlug(String(to.params.slug))) return true
+        return {
+          name: 'not-found',
+          params: { pathMatch: to.path.slice(1).split('/') },
+          query: to.query,
+          hash: to.hash,
+          replace: true,
+        }
+      },
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('@/views/NotFoundView.vue'),
       meta: { titleKey: 'notFound.title' },
     },
   ],
-  scrollBehavior: (_to, _from, savedPosition) => savedPosition ?? { top: 0 },
+  scrollBehavior: (to, _from, savedPosition) => {
+    if (savedPosition) return savedPosition
+    if (to.hash) return { el: to.hash, top: 16 }
+    return { top: 0 }
+  },
 })
 
 router.afterEach((to) => {
   const appTitle = import.meta.env.VITE_APP_TITLE || 'Portfolio'
-  const pageTitle = to.meta.titleKey ? i18n.global.t(to.meta.titleKey) : ''
+  const pageTitle = to.meta.title?.(to) ?? (to.meta.titleKey ? i18n.global.t(to.meta.titleKey) : '')
   document.title = pageTitle ? `${pageTitle} · ${appTitle}` : appTitle
 })
 

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#7c3aed"/>
+  <circle cx="640" cy="120" r="180" fill="#fff" fill-opacity="0.12"/>
+  <circle cx="120" cy="520" r="220" fill="#000" fill-opacity="0.1"/>
+  <text x="400" y="300" fill="#fff" font-family="system-ui, sans-serif" font-size="48" font-weight="700" text-anchor="middle" dominant-baseline="middle">Sample Project 2</text>
+  <text x="400" y="360" fill="#fff" fill-opacity="0.75" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle">Placeholder image</text>
+</svg>

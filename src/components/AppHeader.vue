@@ -12,6 +12,7 @@ const appTitle = import.meta.env.VITE_APP_TITLE || 'Portfolio'
 
 const links = [
   { to: { name: 'home' }, label: 'nav.home' },
+  { to: { name: 'work' }, label: 'nav.work' },
   { to: { name: 'about' }, label: 'nav.about' },
 ] as const
 </script>

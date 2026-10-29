@@ -1,23 +1,48 @@
 {
   "nav": {
     "home": "Home",
+    "work": "Work",
     "about": "About"
   },
   "a11y": {
     "skipToContent": "Skip to main content",
     "mainNav": "Main",
     "language": "Language",
-    "toggleDark": "Dark mode"
+    "toggleDark": "Dark mode",
+    "opensInNewTab": "opens in a new tab"
   },
   "home": {
-    "title": "Portfolio",
-    "intro": "Vue 3, Vite, TypeScript, Pinia, Vue Router, Tailwind CSS and vue-i18n, wired up and ready to build on.",
-    "counter": {
-      "heading": "Pinia store example",
-      "value": "Count: {count} (doubled: {double})",
-      "increment": "Increment",
-      "reset": "Reset"
+    "greeting": "Hi, I'm Christine.",
+    "role": "Front-end engineer in Boulder, Colorado",
+    "blurb": "Front-end engineer with 10+ years of experience building accessible, interactive web experiences. Combines design thinking, a strong visual eye, and a knack for troubleshooting to ship polished work in close partnership with designers and content teams.",
+    "recentWork": "Recent work",
+    "seeAll": "See all work",
+    "expertise": {
+      "heading": "What I bring",
+      "design": {
+        "title": "Design",
+        "text": "Design thinking and a strong visual eye. I prototype in Figma and turn designs into polished, responsive interfaces in close partnership with designers and content teams."
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "text": "Building to WCAG 2.1 AA from the start. I led an accessibility audit of a 34-product interactive learning library, prototyped fixes and delivered a roadmap for improvements."
+      },
+      "interactive": {
+        "title": "Interactive development",
+        "text": "Rich, playful experiences in Vue and TypeScript with creative libraries like d3.js, pixi.js, p5.js and GreenSock, used by more than 100,000 students."
+      }
     }
+  },
+  "work": {
+    "title": "Work",
+    "intro": "All {count} projects, newest first."
+  },
+  "portfolio": {
+    "backToWork": "All work",
+    "date": "Date",
+    "role": "Role",
+    "visit": "Visit project",
+    "gallery": "Gallery"
   },
   "about": {
     "title": "About this template",

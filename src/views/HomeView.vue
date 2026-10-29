@@ -1,33 +1,39 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
+import { RouterLink } from 'vue-router'
 
-import BaseButton from '@/components/BaseButton.vue'
-import { useCounterStore } from '@/stores/counter'
+import ExpertiseSection from '@/components/ExpertiseSection.vue'
+import PortfolioGrid from '@/components/PortfolioGrid.vue'
+import { getRecentItems, portfolioItems } from '@/data/portfolio'
 
 const { t } = useI18n()
-const counter = useCounterStore()
-const { count, doubleCount } = storeToRefs(counter)
+
+const recentItems = getRecentItems(portfolioItems, 9)
 </script>
 
 <template>
-  <section class="space-y-8">
-    <header class="space-y-3">
-      <h1 class="text-4xl font-bold tracking-tight">{{ t('home.title') }}</h1>
-      <p class="max-w-2xl text-lg text-ink-muted">{{ t('home.intro') }}</p>
-    </header>
+  <div class="space-y-16">
+    <section aria-labelledby="intro-heading" class="max-w-2xl space-y-4">
+      <h1 id="intro-heading" class="text-4xl font-bold tracking-tight">{{ t('home.greeting') }}</h1>
+      <p class="text-xl font-medium text-brand-700 dark:text-brand-500">{{ t('home.role') }}</p>
+      <p class="text-lg text-ink-muted">{{ t('home.blurb') }}</p>
+    </section>
 
-    <div class="max-w-md space-y-4 rounded-xl border border-line bg-surface-muted p-6">
-      <h2 class="font-semibold">{{ t('home.counter.heading') }}</h2>
-      <p data-testid="count" aria-live="polite">
-        {{ t('home.counter.value', { count, double: doubleCount }) }}
-      </p>
-      <div class="flex gap-3">
-        <BaseButton @click="counter.increment()">{{ t('home.counter.increment') }}</BaseButton>
-        <BaseButton variant="secondary" @click="counter.reset()">
-          {{ t('home.counter.reset') }}
-        </BaseButton>
+    <section aria-labelledby="recent-work-heading" class="space-y-6">
+      <h2 id="recent-work-heading" class="text-2xl font-semibold tracking-tight">
+        {{ t('home.recentWork') }}
+      </h2>
+      <PortfolioGrid :items="recentItems" />
+      <div class="flex justify-center pt-2">
+        <RouterLink
+          :to="{ name: 'work' }"
+          class="inline-flex items-center gap-2 rounded-md border border-line px-5 py-2.5 text-sm font-medium hover:bg-surface-muted"
+        >
+          {{ t('home.seeAll') }} <span aria-hidden="true">→</span>
+        </RouterLink>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <ExpertiseSection />
+  </div>
 </template>

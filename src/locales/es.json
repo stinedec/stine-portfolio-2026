@@ -1,23 +1,48 @@
 {
   "nav": {
     "home": "Inicio",
+    "work": "Trabajo",
     "about": "Acerca de"
   },
   "a11y": {
     "skipToContent": "Saltar al contenido principal",
     "mainNav": "Principal",
     "language": "Idioma",
-    "toggleDark": "Modo oscuro"
+    "toggleDark": "Modo oscuro",
+    "opensInNewTab": "se abre en una pestaña nueva"
   },
   "home": {
-    "title": "Portfolio",
-    "intro": "Vue 3, Vite, TypeScript, Pinia, Vue Router, Tailwind CSS y vue-i18n, configurados y listos para construir.",
-    "counter": {
-      "heading": "Ejemplo de store de Pinia",
-      "value": "Cuenta: {count} (doble: {double})",
-      "increment": "Incrementar",
-      "reset": "Reiniciar"
+    "greeting": "Hola, soy Christine.",
+    "role": "Ingeniera front-end en Boulder, Colorado",
+    "blurb": "Ingeniera front-end con más de 10 años de experiencia creando experiencias web accesibles e interactivas. Combina el pensamiento de diseño, un buen ojo visual y habilidad para resolver problemas para entregar trabajo pulido en estrecha colaboración con equipos de diseño y contenido.",
+    "recentWork": "Trabajo reciente",
+    "seeAll": "Ver todo el trabajo",
+    "expertise": {
+      "heading": "Lo que aporto",
+      "design": {
+        "title": "Diseño",
+        "text": "Pensamiento de diseño y buen ojo visual. Hago prototipos en Figma y convierto diseños en interfaces pulidas y adaptables, en estrecha colaboración con equipos de diseño y contenido."
+      },
+      "accessibility": {
+        "title": "Accesibilidad",
+        "text": "Desarrollo conforme a WCAG 2.1 AA desde el principio. Dirigí una auditoría de accesibilidad de una biblioteca de 34 productos educativos interactivos, hice prototipos de soluciones y entregué un plan de mejoras."
+      },
+      "interactive": {
+        "title": "Desarrollo interactivo",
+        "text": "Experiencias ricas y lúdicas con Vue y TypeScript, usando bibliotecas creativas como d3.js, pixi.js, p5.js y GreenSock, utilizadas por más de 100.000 estudiantes."
+      }
     }
+  },
+  "work": {
+    "title": "Trabajo",
+    "intro": "Los {count} proyectos, del más reciente al más antiguo."
+  },
+  "portfolio": {
+    "backToWork": "Todo el trabajo",
+    "date": "Fecha",
+    "role": "Rol",
+    "visit": "Ver proyecto",
+    "gallery": "Galería"
   },
   "about": {
     "title": "Acerca de esta plantilla",

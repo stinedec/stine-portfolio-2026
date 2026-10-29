@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "sample-project-10",
+    "title": "Sample Project 10",
+    "date": "2026-09-15",
+    "image": "portfolio/sample-project-10.svg",
+    "imageAlt": "Placeholder preview for Sample Project 10",
+    "summary": "One or two sentences about what this project is and what you did on it.",
+    "role": "Sole front-end developer",
+    "description": [
+      "A longer write-up for this project's page. Explain the problem, who it was for and what you built.",
+      "Add as many paragraphs as you like. Each string in the description list becomes its own paragraph."
+    ],
+    "gallery": [
+      {
+        "image": "portfolio/sample-project-09.svg",
+        "alt": "Placeholder gallery image 1"
+      },
+      {
+        "image": "portfolio/sample-project-08.svg",
+        "alt": "Placeholder gallery image 2"
+      }
+    ],
+    "url": "https://example.com",
+    "tags": ["Vue", "TypeScript"]
+  },
+  {
+    "slug": "sample-project-09",
+    "title": "Sample Project 9",
+    "date": "2026-07-02",
+    "image": "portfolio/sample-project-09.svg",
+    "imageAlt": "Placeholder preview for Sample Project 9",
+    "summary": "One or two sentences about what this project is and what you did on it.",
+    "tags": ["UI/UX"]
+  },
+  {
+    "slug": "sample-project-08",
+    "title": "Sample Project 8",
+    "date": "2026-05-20",
+    "image": "portfolio/sample-project-08.svg",
+    "imageAlt": "Placeholder preview for Sample Project 8",
+    "summary": "One or two sentences about what this project is and what you did on it."
+  },
+  {
+    "slug": "sample-project-07",
+    "title": "Sample Project 7",
+    "date": "2026-03-08",
+    "image": "portfolio/sample-project-07.svg",
+    "imageAlt": "Placeholder preview for Sample Project 7",
+    "summary": "One or two sentences about what this project is and what you did on it."
+  },
+  {
+    "slug": "sample-project-06",
+    "title": "Sample Project 6",
+    "date": "2026-01-14",
+    "image": "portfolio/sample-project-06.svg",
+    "imageAlt": "Placeholder preview for Sample Project 6",
+    "summary": "One or two sentences about what this project is and what you did on it."
+  },
+  {
+    "slug": "sample-project-05",
+    "title": "Sample Project 5",
+    "date": "2025-11-03",
+    "image": "portfolio/sample-project-05.svg",
+    "imageAlt": "Placeholder preview for Sample Project 5",
+    "summary": "One or two sentences about what this project is and what you did on it."
+  },
+  {
+    "slug": "sample-project-04",
+    "title": "Sample Project 4",
+    "date": "2025-09-22",
+    "image": "portfolio/sample-project-04.svg",
+    "imageAlt": "Placeholder preview for Sample Project 4",
+    "summary": "One or two sentences about what this project is and what you did on it."
+  },
+  {
+    "slug": "sample-project-03",
+    "title": "Sample Project 3",
+    "date": "2025-07-11",
+    "image": "portfolio/sample-project-03.svg",
+    "imageAlt": "Placeholder preview for Sample Project 3",
+    "summary": "One or two sentences about what this project is and what you did on it."
+  },
+  {
+    "slug": "sample-project-02",
+    "title": "Sample Project 2",
+    "date": "2025-05-06",
+    "image": "portfolio/sample-project-02.svg",
+    "imageAlt": "Placeholder preview for Sample Project 2",
+    "summary": "One or two sentences about what this project is and what you did on it."
+  },
+  {
+    "slug": "sample-project-01",
+    "title": "Sample Project 1",
+    "date": "2025-03-10",
+    "image": "portfolio/sample-project-01.svg",
+    "imageAlt": "Placeholder preview for Sample Project 1",
+    "summary": "This is the oldest item, so it won't show on the homepage. Only the nine most recent appear there."
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de"
+  },
+  "a11y": {
+    "skipToContent": "Saltar al contenido principal",
+    "mainNav": "Principal",
+    "language": "Idioma",
+    "toggleDark": "Modo oscuro"
+  },
+  "home": {
+    "title": "Portfolio",
+    "intro": "Vue 3, Vite, TypeScript, Pinia, Vue Router, Tailwind CSS y vue-i18n, configurados y listos para construir.",
+    "counter": {
+      "heading": "Ejemplo de store de Pinia",
+      "value": "Cuenta: {count} (doble: {double})",
+      "increment": "Incrementar",
+      "reset": "Reiniciar"
+    }
+  },
+  "about": {
+    "title": "Acerca de esta plantilla",
+    "intro": "Un punto de partida ligero con las decisiones de herramientas ya tomadas, para empezar nuevos proyectos con funcionalidades en lugar de configuración."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "La página que buscas no existe o se ha movido.",
+    "back": "Volver al inicio"
+  },
+  "footer": {
+    "builtWith": "Hecho con Vue y Vite"
+  }
+}

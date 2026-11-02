@@ -35,28 +35,23 @@ function selectTag(tag: string | undefined) {
   // replace, not push: picking filters shouldn't fill up the back button's history.
   router.replace({ query: { ...route.query, tag } })
 }
-
-const chipClasses =
-  'rounded-full border px-3 py-1 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500'
-const activeClasses = 'border-brand-600 bg-brand-600 text-white'
-const inactiveClasses = 'border-line bg-surface hover:bg-surface-muted'
 </script>
 
 <template>
-  <section aria-labelledby="work-heading" class="space-y-8">
-    <header class="space-y-5">
-      <h1 id="work-heading" class="text-4xl font-bold tracking-tight">{{ t('work.title') }}</h1>
+  <section aria-labelledby="work-heading" class="work">
+    <header class="work__header">
+      <h1 id="work-heading" class="heading heading--page">{{ t('work.title') }}</h1>
 
       <div
         v-if="tags.length"
         role="group"
         :aria-label="t('work.filterLabel')"
-        class="flex flex-wrap gap-2"
+        class="work__filters"
       >
         <button
           type="button"
           :aria-pressed="!activeTag"
-          :class="[chipClasses, !activeTag ? activeClasses : inactiveClasses]"
+          :class="['filter-chip', { 'filter-chip--active': !activeTag }]"
           @click="selectTag(undefined)"
         >
           {{ t('work.allTags') }}
@@ -66,16 +61,16 @@ const inactiveClasses = 'border-line bg-surface hover:bg-surface-muted'
           :key="tag"
           type="button"
           :aria-pressed="activeTag === tag"
-          :class="[chipClasses, activeTag === tag ? activeClasses : inactiveClasses]"
+          :class="['filter-chip', { 'filter-chip--active': activeTag === tag }]"
           @click="selectTag(activeTag === tag ? undefined : tag)"
         >
           {{ tag }}
-          <span class="opacity-70" aria-hidden="true">{{ count }}</span>
+          <span class="filter-chip__count" aria-hidden="true">{{ count }}</span>
         </button>
       </div>
 
       <!-- Announced to screen readers when the filter changes. -->
-      <p class="max-w-2xl text-lg text-ink-muted" aria-live="polite">
+      <p class="work__intro lead" aria-live="polite">
         {{
           activeTag
             ? t('work.filteredIntro', { count: items.length, tag: activeTag }, items.length)
@@ -87,3 +82,51 @@ const inactiveClasses = 'border-line bg-surface hover:bg-surface-muted'
     <PortfolioGrid :items="items" />
   </section>
 </template>
+
+<style>
+.work > * + * {
+  margin-top: 2rem;
+}
+
+.work__header > * + * {
+  margin-top: 1.25rem;
+}
+
+.work__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.work__intro {
+  max-width: 42rem;
+}
+
+.filter-chip {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background-color: var(--surface);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+  cursor: pointer;
+  transition-property: color, background-color, border-color;
+  transition-timing-function: var(--ease);
+  transition-duration: var(--duration);
+}
+
+.filter-chip:hover {
+  background-color: var(--surface-muted);
+}
+
+.filter-chip--active,
+.filter-chip--active:hover {
+  border-color: var(--brand-600);
+  background-color: var(--brand-600);
+  color: white;
+}
+
+.filter-chip__count {
+  opacity: 0.7;
+}
+</style>

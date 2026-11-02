@@ -33,19 +33,13 @@ const areas = [
 </script>
 
 <template>
-  <section aria-labelledby="expertise-heading" class="space-y-6">
-    <h2 id="expertise-heading" class="text-2xl font-semibold tracking-tight">
+  <section aria-labelledby="expertise-heading" class="expertise">
+    <h2 id="expertise-heading" class="heading heading--section">
       {{ t('home.expertise.heading') }}
     </h2>
-    <ul class="grid gap-6 md:grid-cols-3">
-      <li
-        v-for="area in areas"
-        :key="area.key"
-        class="space-y-3 rounded-xl border border-line bg-surface-muted p-6"
-      >
-        <span
-          class="grid size-12 place-items-center rounded-full bg-brand-100 text-brand-700 dark:bg-brand-700/25 dark:text-brand-500"
-        >
+    <ul class="expertise__list">
+      <li v-for="area in areas" :key="area.key" class="expertise__item">
+        <span class="expertise__icon">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -53,15 +47,68 @@ const areas = [
             stroke-width="1.75"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="size-6"
+            class="expertise__icon-svg"
             aria-hidden="true"
           >
             <path v-for="d in area.icon" :key="d" :d="d" />
           </svg>
         </span>
-        <h3 class="text-lg font-semibold">{{ t(`home.expertise.${area.key}.title`) }}</h3>
-        <p class="text-ink-muted">{{ t(`home.expertise.${area.key}.text`) }}</p>
+        <h3 class="expertise__title">{{ t(`home.expertise.${area.key}.title`) }}</h3>
+        <p class="expertise__text">{{ t(`home.expertise.${area.key}.text`) }}</p>
       </li>
     </ul>
   </section>
 </template>
+
+<style>
+.expertise > * + * {
+  margin-top: 1.5rem;
+}
+
+.expertise__list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (width >= 48rem) {
+  .expertise__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.expertise__item {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background-color: var(--surface-muted);
+}
+
+.expertise__item > * + * {
+  margin-top: 0.75rem;
+}
+
+.expertise__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background-color: var(--badge-bg);
+  color: var(--badge-ink);
+}
+
+.expertise__icon-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.expertise__title {
+  font-size: var(--text-lg);
+  line-height: var(--text-lg-lh);
+  font-weight: 600;
+}
+
+.expertise__text {
+  color: var(--ink-muted);
+}
+</style>

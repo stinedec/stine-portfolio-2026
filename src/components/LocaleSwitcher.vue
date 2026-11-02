@@ -18,16 +18,31 @@ const current = computed({
 </script>
 
 <template>
-  <label for="locale-switcher" class="text-sm">
+  <label for="locale-switcher" class="locale-switcher">
     <span class="sr-only">{{ t('a11y.language') }}</span>
-    <select
-      id="locale-switcher"
-      v-model="current"
-      class="h-9 rounded-md border border-line bg-surface px-2 hover:bg-surface-muted"
-    >
+    <select id="locale-switcher" v-model="current" class="locale-switcher__select">
       <option v-for="code in SUPPORTED_LOCALES" :key="code" :value="code" :lang="code">
         {{ labels[code] }}
       </option>
     </select>
   </label>
 </template>
+
+<style>
+.locale-switcher {
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+}
+
+.locale-switcher__select {
+  height: 2.25rem;
+  padding-inline: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+}
+
+.locale-switcher__select:hover {
+  background-color: var(--surface-muted);
+}
+</style>

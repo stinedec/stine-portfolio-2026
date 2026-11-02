@@ -16,7 +16,7 @@ describe('BaseButton', () => {
 
   it('applies the variant classes', () => {
     const wrapper = mount(BaseButton, { props: { variant: 'secondary' } })
-    expect(wrapper.classes()).toContain('border')
+    expect(wrapper.classes()).toContain('button--secondary')
   })
 
   it('forwards click listeners to the native button', async () => {

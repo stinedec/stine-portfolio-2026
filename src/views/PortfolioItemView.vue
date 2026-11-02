@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 
 import PortfolioVideo from '@/components/PortfolioVideo.vue'
+import TagList from '@/components/TagList.vue'
 import { assetUrl, formatItemDate, getItemBySlug, localizeItem } from '@/data/portfolio'
 
 const { slug } = defineProps<{ slug: string }>()
@@ -19,36 +20,29 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
 </script>
 
 <template>
-  <article v-if="item" class="space-y-10">
-    <RouterLink
-      :to="{ name: 'work' }"
-      class="inline-flex items-center gap-1 text-sm text-ink-muted hover:text-ink"
-    >
+  <article v-if="item" class="project">
+    <RouterLink :to="{ name: 'work' }" class="project__back">
       <span aria-hidden="true">←</span> {{ t('portfolio.backToWork') }}
     </RouterLink>
 
-    <header class="max-w-3xl space-y-4">
-      <h1 class="text-4xl font-bold tracking-tight" :lang="item.lang">{{ item.title }}</h1>
-      <p class="text-lg text-ink-muted" :lang="item.lang">{{ item.summary }}</p>
+    <header class="project__header">
+      <h1 class="heading heading--page" :lang="item.lang">{{ item.title }}</h1>
+      <p class="lead" :lang="item.lang">{{ item.summary }}</p>
 
-      <dl class="flex flex-wrap gap-x-8 gap-y-2 text-sm">
+      <dl class="project__facts">
         <div>
-          <dt class="text-ink-muted">{{ t('portfolio.date') }}</dt>
-          <dd class="font-medium">
+          <dt class="project__fact-label">{{ t('portfolio.date') }}</dt>
+          <dd class="project__fact-value">
             <time :datetime="item.date">{{ formatItemDate(item.date, locale) }}</time>
           </dd>
         </div>
         <div v-if="item.role">
-          <dt class="text-ink-muted">{{ t('portfolio.role') }}</dt>
-          <dd class="font-medium" :lang="item.lang">{{ item.role }}</dd>
+          <dt class="project__fact-label">{{ t('portfolio.role') }}</dt>
+          <dd class="project__fact-value" :lang="item.lang">{{ item.role }}</dd>
         </div>
       </dl>
 
-      <ul v-if="item.tags?.length" class="flex flex-wrap gap-2 text-xs text-ink-muted">
-        <li v-for="tag in item.tags" :key="tag" class="rounded-full border border-line px-2.5 py-1">
-          {{ tag }}
-        </li>
-      </ul>
+      <TagList v-if="item.tags?.length" :tags="item.tags" size="large" />
     </header>
 
     <img
@@ -57,15 +51,15 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
       :lang="item.lang"
       width="1200"
       height="900"
-      class="aspect-[4/3] w-full rounded-xl border border-line bg-surface-muted object-cover"
+      class="project__hero"
     />
 
-    <div v-if="item.description?.length || item.url" class="max-w-3xl space-y-4">
+    <div v-if="item.description?.length || item.url" class="project__body">
       <p
         v-for="(paragraph, index) in item.description"
         :key="index"
         :lang="item.lang"
-        class="leading-relaxed"
+        class="project__paragraph"
       >
         {{ paragraph }}
       </p>
@@ -74,7 +68,7 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
         :href="item.url"
         :target="isExternal ? '_blank' : undefined"
         :rel="isExternal ? 'noopener noreferrer' : undefined"
-        class="inline-flex items-center gap-2 rounded-md bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-700"
+        class="project__visit"
       >
         {{ t('portfolio.visit') }}
         <span aria-hidden="true">↗</span>
@@ -82,8 +76,8 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
       </a>
     </div>
 
-    <section v-if="item.videos?.length" aria-labelledby="videos-heading" class="space-y-6">
-      <h2 id="videos-heading" class="text-2xl font-semibold tracking-tight">
+    <section v-if="item.videos?.length" aria-labelledby="videos-heading" class="project__videos">
+      <h2 id="videos-heading" class="heading heading--section">
         {{ t('portfolio.videos') }}
       </h2>
       <PortfolioVideo
@@ -91,15 +85,15 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
         :key="video.src ?? video.youtubeId ?? video.vimeoId"
         :video="video"
         :content-lang="item.lang"
-        class="max-w-4xl"
+        class="project__video"
       />
     </section>
 
-    <section v-if="item.gallery?.length" aria-labelledby="gallery-heading" class="space-y-4">
-      <h2 id="gallery-heading" class="text-2xl font-semibold tracking-tight">
+    <section v-if="item.gallery?.length" aria-labelledby="gallery-heading" class="project__gallery">
+      <h2 id="gallery-heading" class="heading heading--section">
         {{ t('portfolio.gallery') }}
       </h2>
-      <ul class="grid gap-6 sm:grid-cols-2">
+      <ul class="project__gallery-list">
         <li v-for="shot in item.gallery" :key="shot.image">
           <img
             :src="assetUrl(shot.image)"
@@ -109,10 +103,116 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
             height="600"
             loading="lazy"
             decoding="async"
-            class="aspect-[4/3] w-full rounded-xl border border-line bg-surface-muted object-cover"
+            class="project__gallery-image"
           />
         </li>
       </ul>
     </section>
   </article>
 </template>
+
+<style>
+/* Space below each child (not above) so the inline back link keeps its line height. */
+.project > :not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+
+.project__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+  color: var(--ink-muted);
+}
+
+.project__back:hover {
+  color: var(--ink);
+}
+
+.project__header {
+  max-width: 48rem;
+}
+
+.project__header > * + * {
+  margin-top: 1rem;
+}
+
+.project__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+}
+
+.project__fact-label {
+  color: var(--ink-muted);
+}
+
+.project__fact-value {
+  font-weight: 500;
+}
+
+.project__hero,
+.project__gallery-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background-color: var(--surface-muted);
+}
+
+.project__body {
+  max-width: 48rem;
+}
+
+.project__body > * + * {
+  margin-top: 1rem;
+}
+
+.project__paragraph {
+  line-height: 1.625;
+}
+
+.project__visit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  background-color: var(--brand-600);
+  color: white;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+  font-weight: 500;
+}
+
+.project__visit:hover {
+  background-color: var(--brand-700);
+}
+
+.project__videos > * + * {
+  margin-top: 1.5rem;
+}
+
+.project__video {
+  max-width: 56rem;
+}
+
+.project__gallery > * + * {
+  margin-top: 1rem;
+}
+
+.project__gallery-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (width >= 40rem) {
+  .project__gallery-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+</style>

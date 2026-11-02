@@ -7,22 +7,66 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div class="flex min-h-dvh flex-col">
-    <a
-      href="#main"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-surface focus:px-3 focus:py-2 focus:shadow"
-    >
+  <div class="layout">
+    <a href="#main" class="layout__skip-link">
       {{ t('a11y.skipToContent') }}
     </a>
 
     <AppHeader />
 
-    <main id="main" tabindex="-1" class="mx-auto w-full max-w-5xl flex-1 px-4 py-12 outline-none">
+    <main id="main" tabindex="-1" class="layout__main container">
       <slot />
     </main>
 
-    <footer class="border-t border-line">
-      <p class="mx-auto max-w-5xl px-4 py-6 text-sm text-ink-muted">{{ t('footer.builtWith') }}</p>
+    <footer class="layout__footer">
+      <p class="layout__footer-text container">{{ t('footer.builtWith') }}</p>
     </footer>
   </div>
 </template>
+
+<style>
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* Hidden until a keyboard user tabs to it. */
+.layout__skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.layout__skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 50;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.layout__main {
+  flex: 1;
+  padding-block: 3rem;
+  outline: none;
+}
+
+.layout__footer {
+  border-top: 1px solid var(--line);
+}
+
+.layout__footer-text {
+  padding-block: 1.5rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+  color: var(--ink-muted);
+}
+</style>

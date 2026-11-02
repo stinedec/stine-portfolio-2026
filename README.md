@@ -36,17 +36,17 @@ Each item also gets its own page at `/work/<slug>`, which the homepage card link
 
 The intro blurb is in `src/locales/en.json` (and `es.json`) under `home`.
 
-| Area      | Choice                                                                                     |
-| --------- | ------------------------------------------------------------------------------------------ |
-| Framework | Vue 3 (Composition API, `<script setup>`), Vite 7                                          |
-| Language  | TypeScript (strict), type-checked with `vue-tsc`                                           |
-| Routing   | Vue Router with lazy-loaded routes and i18n'd document titles                              |
-| State     | Pinia (setup-style stores)                                                                 |
-| Styling   | Tailwind CSS v4 via `@tailwindcss/vite`, tokens in `src/assets/main.css`                   |
-| i18n      | vue-i18n (Composition mode), JSON locales precompiled by `@intlify/unplugin-vue-i18n`      |
-| PWA       | `vite-plugin-pwa`: manifest and an auto-updating service worker                            |
-| Testing   | Vitest + Vue Test Utils (unit), Playwright (e2e)                                           |
-| Quality   | ESLint flat config (Vue, TS, a11y, Vitest, Playwright) + Prettier with the Tailwind plugin |
+| Area      | Choice                                                                                |
+| --------- | ------------------------------------------------------------------------------------- |
+| Framework | Vue 3 (Composition API, `<script setup>`), Vite 7                                     |
+| Language  | TypeScript (strict), type-checked with `vue-tsc`                                      |
+| Routing   | Vue Router with lazy-loaded routes and i18n'd document titles                         |
+| State     | Pinia (setup-style stores)                                                            |
+| Styling   | Plain CSS with BEM class names, design tokens in `src/assets/styles/tokens.css`       |
+| i18n      | vue-i18n (Composition mode), JSON locales precompiled by `@intlify/unplugin-vue-i18n` |
+| PWA       | `vite-plugin-pwa`: manifest and an auto-updating service worker                       |
+| Testing   | Vitest + Vue Test Utils (unit), Playwright (e2e)                                      |
+| Quality   | ESLint flat config (Vue, TS, a11y, Vitest, Playwright) + Prettier                     |
 
 ## Getting started
 
@@ -77,7 +77,7 @@ npm run dev
 
 ```
 src/
-  assets/        # global CSS + Tailwind theme tokens
+  assets/        # global CSS: tokens, reset, base and shared blocks
   components/    # shared UI (BaseButton, AppHeader, LocaleSwitcher, PortfolioCard, PortfolioGrid)
   composables/   # reusable useX() logic (useDarkMode)
   data/          # portfolio.json and its types
@@ -102,7 +102,10 @@ Unit tests live next to the code they cover in `__tests__/` folders.
 - **Components:** multi-word PascalCase names; `Base*` for generic UI primitives, `App*` for single-instance app chrome.
 - **Props:** type-only `defineProps<{…}>()` with reactive destructuring for defaults.
 - **Stores:** setup-style (`ref` = state, `computed` = getters, functions = actions). Use `storeToRefs` when destructuring state.
-- **Styling:** Tailwind utilities first. Add brand colors in `@theme`; add theme-aware colors as CSS variables under `:root`/`.dark` and map them in `@theme inline`. That gives you `bg-surface`, `text-ink`, `text-ink-muted`, `border-line` and so on, which switch with dark mode automatically.
+- **Styling:** plain CSS with [BEM](https://getbem.com/) names. Each component styles itself in its own unscoped `<style>` block: `.portfolio-card` (block), `.portfolio-card__title` (element), `.filter-chip--active` (modifier). Shared CSS lives in `src/assets/styles/`:
+  - `tokens.css`: colors, type scale, radii and shadows as CSS variables. Theme colors (`--surface`, `--ink`, `--ink-muted`, `--line`, `--accent-text`…) switch with dark mode automatically, so use them instead of raw colors.
+  - `reset.css` and `base.css`: browser reset and page defaults, in cascade layers so component styles always win.
+  - `shared.css`: small blocks to mix in: `.container` (page width), `.heading--page`, `.heading--section`, `.lead` and `.sr-only`.
 - **Dark mode:** class-based (`.dark` on `<html>`). An inline script in `index.html` applies it before first paint.
 - **API calls:** go through `api` in `src/services/http.ts`; set `VITE_API_BASE_URL` in `.env.local`.
 - **Env vars:** declare new `VITE_*` variables in `env.d.ts` so they're typed.

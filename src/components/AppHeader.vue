@@ -18,29 +18,26 @@ const links = [
 </script>
 
 <template>
-  <header class="border-b border-line">
-    <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
-      <RouterLink to="/" class="font-semibold tracking-tight">{{ appTitle }}</RouterLink>
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <RouterLink to="/" class="site-header__brand">{{ appTitle }}</RouterLink>
 
-      <nav :aria-label="t('a11y.mainNav')" class="mr-auto">
-        <ul class="flex gap-5 text-sm">
+      <nav :aria-label="t('a11y.mainNav')" class="site-header__nav">
+        <ul class="site-header__nav-list">
           <li v-for="link in links" :key="link.label">
             <!-- RouterLink sets aria-current="page" on the exact-active link -->
-            <RouterLink
-              :to="link.to"
-              class="text-ink-muted hover:text-ink aria-[current=page]:font-medium aria-[current=page]:text-brand-600 dark:aria-[current=page]:text-brand-500"
-            >
+            <RouterLink :to="link.to" class="site-header__nav-link">
               {{ t(link.label) }}
             </RouterLink>
           </li>
         </ul>
       </nav>
 
-      <div class="flex items-center gap-3">
+      <div class="site-header__actions">
         <LocaleSwitcher />
         <button
           type="button"
-          class="grid size-9 place-items-center rounded-md border border-line hover:bg-surface-muted"
+          class="site-header__theme-toggle"
           :aria-label="t('a11y.toggleDark')"
           :aria-pressed="isDark"
           @click="toggle"
@@ -51,3 +48,66 @@ const links = [
     </div>
   </header>
 </template>
+
+<style>
+.site-header {
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+}
+
+.site-header__brand {
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+}
+
+.site-header__nav {
+  margin-right: auto;
+}
+
+.site-header__nav-list {
+  display: flex;
+  gap: 1.25rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+}
+
+.site-header__nav-link {
+  color: var(--ink-muted);
+}
+
+.site-header__nav-link:hover {
+  color: var(--ink);
+}
+
+.site-header__nav-link[aria-current='page'] {
+  font-weight: 500;
+  color: var(--accent-text);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-header__theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.site-header__theme-toggle:hover {
+  background-color: var(--surface-muted);
+}
+</style>

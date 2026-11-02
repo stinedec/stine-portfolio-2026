@@ -6,12 +6,48 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <section class="space-y-4 py-12 text-center">
-    <p class="text-sm font-semibold text-brand-600">404</p>
-    <h1 class="text-3xl font-bold tracking-tight">{{ t('notFound.title') }}</h1>
-    <p class="text-ink-muted">{{ t('notFound.message') }}</p>
-    <RouterLink to="/" class="inline-block font-medium text-brand-600 underline underline-offset-4">
+  <section class="not-found">
+    <p class="not-found__code">404</p>
+    <h1 class="not-found__title heading">{{ t('notFound.title') }}</h1>
+    <p class="not-found__message">{{ t('notFound.message') }}</p>
+    <RouterLink to="/" class="not-found__link">
       {{ t('notFound.back') }}
     </RouterLink>
   </section>
 </template>
+
+<style>
+.not-found {
+  padding-block: 3rem;
+  text-align: center;
+}
+
+.not-found > * + * {
+  margin-top: 1rem;
+}
+
+.not-found__code {
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+  font-weight: 600;
+  color: var(--brand-600);
+}
+
+.not-found__title {
+  font-size: var(--text-3xl);
+  line-height: var(--text-3xl-lh);
+  font-weight: 700;
+}
+
+.not-found__message {
+  color: var(--ink-muted);
+}
+
+.not-found__link {
+  display: inline-block;
+  font-weight: 500;
+  color: var(--brand-600);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+</style>

@@ -1,52 +1,14 @@
-@import 'tailwindcss';
+/* Layers keep the reset and base styles below every component's own styles. */
+@layer reset, base;
 
-/* Class-based dark mode: `.dark` on <html> (see composables/useDarkMode.ts). */
-@custom-variant dark (&:where(.dark, .dark *));
+@import './styles/tokens.css';
+@import './styles/reset.css';
+@import './styles/base.css';
+@import './styles/shared.css';
 
-/* Design tokens — generate utilities like bg-brand-600, text-brand-500. */
-@theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-
-  --color-brand-50: oklch(0.98 0.02 155);
-  --color-brand-100: oklch(90.21% 0.09077 80.834);
-  --color-brand-500: oklch(74.656% 0.16057 69.054);
-  --color-brand-600: oklch(64.044% 0.18567 36.072);
-  --color-brand-700: oklch(55.623% 0.18485 35.032);
-}
-
-/* Semantic tokens that flip with the theme — bg-surface, text-ink, border-line… */
-@theme inline {
-  --color-surface: var(--surface);
-  --color-surface-muted: var(--surface-muted);
-  --color-ink: var(--ink);
-  --color-ink-muted: var(--ink-muted);
-  --color-line: var(--line);
-}
-
-@layer base {
-  :root {
-    --surface: oklch(0.99 0 0);
-    --surface-muted: oklch(0.965 0.005 250);
-    --ink: oklch(0.22 0.02 250);
-    --ink-muted: oklch(0.45 0.02 250);
-    --line: oklch(0.9 0.01 250);
-    color-scheme: light;
-  }
-
-  .dark {
-    --surface: oklch(29.829% 0.0475 217.575);
-    --surface-muted: oklch(26.864% 0.04466 219.723);
-    --ink: oklch(0.95 0.01 250);
-    --ink-muted: oklch(0.72 0.02 250);
-    --line: oklch(0.32 0.01 250);
-    color-scheme: dark;
-  }
-
-  body {
-    @apply bg-surface text-ink antialiased;
-  }
-
-  :focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-500;
-  }
-}
+/*
+ * Each component styles itself in its own <style> block using BEM:
+ *   .block            portfolio-card
+ *   .block__element   portfolio-card__title
+ *   .block--modifier  filter-chip--active
+ */

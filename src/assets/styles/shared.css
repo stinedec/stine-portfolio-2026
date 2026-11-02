@@ -1,0 +1,50 @@
+/*
+ * Small blocks used by many components. Mix them with a component's own
+ * block, e.g. `class="work__intro lead"`.
+ */
+
+/* Centers content at the page width with side padding. */
+.container {
+  width: 100%;
+  max-width: var(--page-width);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.heading {
+  letter-spacing: var(--tracking-tight);
+}
+
+/* The main title of a page. */
+.heading--page {
+  font-size: var(--text-4xl);
+  line-height: var(--text-4xl-lh);
+  font-weight: 700;
+}
+
+/* A section title within a page. */
+.heading--section {
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl-lh);
+  font-weight: 600;
+}
+
+/* Larger, muted intro text under a title. */
+.lead {
+  font-size: var(--text-lg);
+  line-height: var(--text-lg-lh);
+  color: var(--ink-muted);
+}
+
+/* Hidden on screen but read by screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}

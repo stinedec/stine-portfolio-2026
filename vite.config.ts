@@ -1,7 +1,6 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
-import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -10,7 +9,6 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   plugins: [
     vue(),
-    tailwindcss(),
     // Precompiles locale JSON so the runtime-only vue-i18n build can be used.
     VueI18nPlugin({
       include: fileURLToPath(new URL('./src/locales/**', import.meta.url)),

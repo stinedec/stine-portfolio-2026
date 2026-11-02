@@ -3,11 +3,11 @@ import { describe, expect, it } from 'vitest'
 import { createI18n } from 'vue-i18n'
 import { createMemoryHistory, createRouter } from 'vue-router'
 
-import type { PortfolioItem } from '@/data/portfolio'
+import type { LocalizedPortfolioItem } from '@/data/portfolio'
 
 import PortfolioCard from '../PortfolioCard.vue'
 
-const item: PortfolioItem = {
+const item: LocalizedPortfolioItem = {
   slug: 'demo',
   title: 'Demo Project',
   date: '2026-03-01',
@@ -16,6 +16,7 @@ const item: PortfolioItem = {
   summary: 'A short summary.',
   url: 'https://example.com',
   tags: ['Vue'],
+  lang: 'en',
 }
 
 function mountCard() {
@@ -42,5 +43,11 @@ describe('PortfolioCard', () => {
     const links = mountCard().findAll('a')
     expect(links).toHaveLength(1)
     expect(links[0]!.attributes('href')).toBe('/work/demo')
+  })
+
+  it("marks the item's text with its language", () => {
+    const wrapper = mountCard()
+    expect(wrapper.get('h3').attributes('lang')).toBe('en')
+    expect(wrapper.get('img').attributes('lang')).toBe('en')
   })
 })

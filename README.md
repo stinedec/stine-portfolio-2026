@@ -118,7 +118,52 @@ Unit tests live next to the code they cover in `__tests__/` folders.
 - `eslint-plugin-vuejs-accessibility` runs as part of `npm run lint`.
 - The layout includes a skip link and a focusable `<main id="main">`. Nav links get `aria-current="page"`, and focus rings use `:focus-visible`.
 
-## Hosting
+## Videos
+
+Add a `videos` list to any item in `portfolio.json`. They show in a "Videos" section on that item's page.
+
+```json
+"videos": [
+  {
+    "title": "Project walkthrough",
+    "description": "Optional sentence shown under the title.",
+    "src": "portfolio/my-project.mp4",
+    "poster": "portfolio/my-project-poster.jpg",
+    "captions": "portfolio/my-project.en.vtt",
+    "transcript": ["Optional transcript, one string per paragraph."]
+  },
+  { "title": "Conference talk", "youtubeId": "VIDEO_ID", "transcript": ["..."] },
+  { "title": "Demo reel", "vimeoId": "123456789", "transcript": ["..."] }
+]
+```
+
+- **Sources:** use exactly one of `src` (an MP4 in `public/portfolio/` or a full URL), `youtubeId` or `vimeoId`. YouTube uses youtube-nocookie.com and Vimeo uses `dnt=1`, so visitors aren't tracked until they press play.
+- **Accessibility:** every video needs `captions` (a [WebVTT](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) `.vtt` file, self-hosted videos only) or a `transcript`, and `npm test` fails if one is missing. Captions are on by default and can be turned off from the player. Videos never autoplay, use the browser's keyboard-accessible controls, and are named by their visible title. For a non-English captions file, set `captionsLang` (e.g. `"es"`) and `captionsLabel` (e.g. `"Español"`).
+- **File size:** keep self-hosted videos short and compressed (H.264 MP4, 720p is plenty). For anything long, YouTube or Vimeo will load faster.
+
+## Translating portfolio items
+
+The site's own text (navigation, labels, buttons) lives in `src/locales/`. Project text stays in `portfolio.json`. To translate a project, add a `translations` object to it, keyed by locale:
+
+```json
+"translations": {
+  "es": {
+    "title": "Mi proyecto",
+    "summary": "Una o dos frases sobre el proyecto.",
+    "description": ["Primer párrafo.", "Segundo párrafo."],
+    "role": "Desarrollador front-end",
+    "imageAlt": "Captura de la página de inicio",
+    "gallery": [{ "alt": "Primera imagen" }, {}],
+    "videos": [{ "title": "Recorrido", "captions": "portfolio/my-project.es.vtt", "transcript": ["..."] }]
+  }
+}
+```
+
+- Every field is optional. Anything you leave out shows in English, so you can translate a little at a time.
+- `gallery` and `videos` match the item's own lists by position. Use `{}` to skip one.
+- A translated `captions` file replaces the English one for that language. `captionsLang` and `captionsLabel` default to the locale (e.g. `es`, "Español").
+- Untranslated text is marked `lang="en"` so screen readers pronounce it in English on the Spanish site.
+- `npm test` checks that each locale is supported, that the lists aren't longer than the ones they translate and that caption files exist.
 
 The site uses HTML5 history routing (`/work/my-project`, not `/#/work/my-project`), so the static host must serve `index.html` for any path it doesn't have a file for. Netlify, Vercel and Cloudflare Pages do this with a one-line rewrite rule. Without it, refreshing an item page returns the host's 404.
 

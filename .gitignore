@@ -28,3 +28,6 @@ npm-debug.log*
 !.vscode/settings.json
 .idea
 .DS_Store
+
+# Videos are too large for git. Keep them on disk or host them elsewhere.
+*.mp4

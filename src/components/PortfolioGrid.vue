@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import PortfolioCard from '@/components/PortfolioCard.vue'
-import type { PortfolioItem } from '@/data/portfolio'
+import type { LocalizedPortfolioItem } from '@/data/portfolio'
 
-defineProps<{ items: PortfolioItem[] }>()
+defineProps<{ items: LocalizedPortfolioItem[] }>()
 </script>
 
 <template>

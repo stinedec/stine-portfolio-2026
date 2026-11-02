@@ -1,6 +1,7 @@
+import { watch } from 'vue'
 import { createRouter, createWebHistory, type RouteLocationNormalized } from 'vue-router'
 
-import { getItemBySlug } from '@/data/portfolio'
+import { getItemBySlug, localizeItem } from '@/data/portfolio'
 import { i18n } from '@/i18n'
 import HomeView from '@/views/HomeView.vue'
 
@@ -40,7 +41,12 @@ const router = createRouter({
       name: 'portfolio-item',
       component: () => import('@/views/PortfolioItemView.vue'),
       props: true,
-      meta: { title: (route) => getItemBySlug(String(route.params.slug))?.title },
+      meta: {
+        title: (route) => {
+          const item = getItemBySlug(String(route.params.slug))
+          return item && localizeItem(item, i18n.global.locale.value).title
+        },
+      },
       // Unknown slugs show the 404 page, keeping the URL the visitor typed.
       beforeEnter: (to) => {
         if (getItemBySlug(String(to.params.slug))) return true
@@ -67,10 +73,14 @@ const router = createRouter({
   },
 })
 
-router.afterEach((to) => {
+function updateTitle(to: RouteLocationNormalized) {
   const appTitle = import.meta.env.VITE_APP_TITLE || 'Portfolio'
   const pageTitle = to.meta.title?.(to) ?? (to.meta.titleKey ? i18n.global.t(to.meta.titleKey) : '')
   document.title = pageTitle ? `${pageTitle} · ${appTitle}` : appTitle
-})
+}
+
+router.afterEach(updateTitle)
+// Switching language doesn't navigate, so refresh the title here too.
+watch(i18n.global.locale, () => updateTitle(router.currentRoute.value))
 
 export default router

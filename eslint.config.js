@@ -32,6 +32,12 @@ export default defineConfigWithVueTs(
   {
     ...pluginPlaywright.configs['flat/recommended'],
     files: ['e2e/**/*.{test,spec}.{js,ts}'],
+    rules: {
+      ...pluginPlaywright.configs['flat/recommended'].rules,
+      // Tests may skip themselves when the content they need doesn't exist yet
+      // (e.g. no video has captions), but not unconditionally.
+      'playwright/no-skipped-test': ['warn', { allowConditional: true }],
+    },
   },
 
   // Turns off rules that conflict with Prettier — keep last.

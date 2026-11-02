@@ -3,14 +3,18 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 
-import { formatItemDate, getItemBySlug, imageUrl } from '@/data/portfolio'
+import PortfolioVideo from '@/components/PortfolioVideo.vue'
+import { assetUrl, formatItemDate, getItemBySlug, localizeItem } from '@/data/portfolio'
 
 const { slug } = defineProps<{ slug: string }>()
 
 const { t, locale } = useI18n()
 
 // The route guard sends unknown slugs to the 404 page, so this is normally set.
-const item = computed(() => getItemBySlug(slug))
+const item = computed(() => {
+  const found = getItemBySlug(slug)
+  return found && localizeItem(found, locale.value)
+})
 const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.value.url))
 </script>
 
@@ -24,8 +28,8 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
     </RouterLink>
 
     <header class="max-w-3xl space-y-4">
-      <h1 class="text-4xl font-bold tracking-tight">{{ item.title }}</h1>
-      <p class="text-lg text-ink-muted">{{ item.summary }}</p>
+      <h1 class="text-4xl font-bold tracking-tight" :lang="item.lang">{{ item.title }}</h1>
+      <p class="text-lg text-ink-muted" :lang="item.lang">{{ item.summary }}</p>
 
       <dl class="flex flex-wrap gap-x-8 gap-y-2 text-sm">
         <div>
@@ -36,7 +40,7 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
         </div>
         <div v-if="item.role">
           <dt class="text-ink-muted">{{ t('portfolio.role') }}</dt>
-          <dd class="font-medium">{{ item.role }}</dd>
+          <dd class="font-medium" :lang="item.lang">{{ item.role }}</dd>
         </div>
       </dl>
 
@@ -48,15 +52,21 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
     </header>
 
     <img
-      :src="imageUrl(item.image)"
+      :src="assetUrl(item.image)"
       :alt="item.imageAlt"
+      :lang="item.lang"
       width="1200"
       height="900"
       class="aspect-[4/3] w-full rounded-xl border border-line bg-surface-muted object-cover"
     />
 
     <div v-if="item.description?.length || item.url" class="max-w-3xl space-y-4">
-      <p v-for="(paragraph, index) in item.description" :key="index" class="leading-relaxed">
+      <p
+        v-for="(paragraph, index) in item.description"
+        :key="index"
+        :lang="item.lang"
+        class="leading-relaxed"
+      >
         {{ paragraph }}
       </p>
       <a
@@ -72,6 +82,19 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
       </a>
     </div>
 
+    <section v-if="item.videos?.length" aria-labelledby="videos-heading" class="space-y-6">
+      <h2 id="videos-heading" class="text-2xl font-semibold tracking-tight">
+        {{ t('portfolio.videos') }}
+      </h2>
+      <PortfolioVideo
+        v-for="video in item.videos"
+        :key="video.src ?? video.youtubeId ?? video.vimeoId"
+        :video="video"
+        :content-lang="item.lang"
+        class="max-w-4xl"
+      />
+    </section>
+
     <section v-if="item.gallery?.length" aria-labelledby="gallery-heading" class="space-y-4">
       <h2 id="gallery-heading" class="text-2xl font-semibold tracking-tight">
         {{ t('portfolio.gallery') }}
@@ -79,8 +102,9 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
       <ul class="grid gap-6 sm:grid-cols-2">
         <li v-for="shot in item.gallery" :key="shot.image">
           <img
-            :src="imageUrl(shot.image)"
+            :src="assetUrl(shot.image)"
             :alt="shot.alt"
+            :lang="item.lang"
             width="800"
             height="600"
             loading="lazy"

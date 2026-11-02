@@ -12,9 +12,9 @@
     "opensInNewTab": "se abre en una pestaña nueva"
   },
   "home": {
-    "greeting": "Hola, soy Christine.",
-    "role": "Ingeniera front-end en Boulder, Colorado",
-    "blurb": "Ingeniera front-end con más de 10 años de experiencia creando experiencias web accesibles e interactivas. Combina el pensamiento de diseño, un buen ojo visual y habilidad para resolver problemas para entregar trabajo pulido en estrecha colaboración con equipos de diseño y contenido.",
+    "greeting": "stinedec development",
+    "role": "Ingeniera front-end sénior en Boulder, Colorado",
+    "blurb": "Más de 10 años de experiencia creando experiencias web accesibles e interactivas. Combina el pensamiento de diseño, un buen ojo visual y habilidad para resolver problemas para entregar trabajo pulido en estrecha colaboración con equipos de diseño y contenido.",
     "recentWork": "Trabajo reciente",
     "seeAll": "Ver todo el trabajo",
     "expertise": {
@@ -29,20 +29,27 @@
       },
       "interactive": {
         "title": "Desarrollo interactivo",
-        "text": "Experiencias ricas y lúdicas con Vue y TypeScript, usando bibliotecas creativas como d3.js, pixi.js, p5.js y GreenSock, utilizadas por más de 100.000 estudiantes."
+        "text": "Experiencias ricas y lúdicas con Vue y TypeScript, usando bibliotecas creativas como d3.js, pixi.js, p5.js y GreenSock."
       }
     }
   },
   "work": {
     "title": "Trabajo",
-    "intro": "Los {count} proyectos, del más reciente al más antiguo."
+    "intro": "Los {count} proyectos, del más reciente al más antiguo.",
+    "filterLabel": "Filtrar por etiqueta",
+    "allTags": "Todos",
+    "filteredIntro": "1 proyecto con la etiqueta «{tag}». | {count} proyectos con la etiqueta «{tag}», del más reciente al más antiguo."
   },
   "portfolio": {
     "backToWork": "Todo el trabajo",
     "date": "Fecha",
     "role": "Rol",
     "visit": "Ver proyecto",
-    "gallery": "Galería"
+    "gallery": "Galería",
+    "videos": "Videos",
+    "transcript": "Transcripción",
+    "videoFallback": "Tu navegador no puede reproducir este video.",
+    "downloadVideo": "Descárgalo en su lugar."
   },
   "about": {
     "title": "Acerca de esta plantilla",

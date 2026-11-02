@@ -12,9 +12,9 @@
     "opensInNewTab": "opens in a new tab"
   },
   "home": {
-    "greeting": "Hi, I'm Christine.",
-    "role": "Front-end engineer in Boulder, Colorado",
-    "blurb": "Front-end engineer with 10+ years of experience building accessible, interactive web experiences. Combines design thinking, a strong visual eye, and a knack for troubleshooting to ship polished work in close partnership with designers and content teams.",
+    "greeting": "stinedec development",
+    "role": "Senior front-end engineer in Boulder, Colorado",
+    "blurb": "10+ years of experience building accessible, interactive web experiences. Combines design thinking, a strong visual eye, and a knack for troubleshooting to ship polished work in close partnership with designers and content teams.",
     "recentWork": "Recent work",
     "seeAll": "See all work",
     "expertise": {
@@ -29,20 +29,27 @@
       },
       "interactive": {
         "title": "Interactive development",
-        "text": "Rich, playful experiences in Vue and TypeScript with creative libraries like d3.js, pixi.js, p5.js and GreenSock, used by more than 100,000 students."
+        "text": "Rich, playful experiences in Vue and TypeScript with creative libraries like d3.js, pixi.js, p5.js and GreenSock."
       }
     }
   },
   "work": {
     "title": "Work",
-    "intro": "All {count} projects, newest first."
+    "intro": "All {count} projects, newest first.",
+    "filterLabel": "Filter by tag",
+    "allTags": "All",
+    "filteredIntro": "1 project tagged “{tag}”. | {count} projects tagged “{tag}”, newest first."
   },
   "portfolio": {
     "backToWork": "All work",
     "date": "Date",
     "role": "Role",
     "visit": "Visit project",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "videos": "Videos",
+    "transcript": "Transcript",
+    "videoFallback": "Your browser can't play this video.",
+    "downloadVideo": "Download it instead."
   },
   "about": {
     "title": "About this template",

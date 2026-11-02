@@ -1,15 +1,29 @@
 [
   {
-    "slug": "sample-project-10",
-    "title": "Sample Project 10",
-    "date": "2026-09-15",
-    "image": "portfolio/sample-project-10.svg",
-    "imageAlt": "Placeholder preview for Sample Project 10",
-    "summary": "One or two sentences about what this project is and what you did on it.",
+    "slug": "earthquake-response-simulation",
+    "title": "Earthquake Response Simulation",
+    "date": "2025-03-01",
+    "image": "portfolio/earthquake-sim.png",
+    "imageAlt": "Placeholder preview for Earthquake Response Simulation",
+    "summary": "An animated simulation of the effectiveness of a student-designed earthquake response system",
     "role": "Sole front-end developer",
     "description": [
-      "A longer write-up for this project's page. Explain the problem, who it was for and what you built.",
-      "Add as many paragraphs as you like. Each string in the description list becomes its own paragraph."
+      "Built an interactive component using Vue 2 and Grapes.js to simulate the design and implementation of an earthquake warning system. Students could choose a layout of sensors for their alarm network, and test their effectiveness against several earthquakes with different epicenter locations. The sensors were able to respond according to which sensor intersected with the earthquake waves first, with response time and casualty numbers responding appropriately."
+    ],
+    "technologies": [
+      "HTML, CSS",
+      "Vue 2",
+      "Grapes.js",
+      "d3.js",
+      "TypeScript",
+      "Git (Version Control)"
+    ],
+    "videos": [
+      {
+        "title": "Walkthrough",
+        "src": "portfolio/Tectonics-2.mp4",
+        "poster": "portfolio/earthquake-sim.png"
+      }
     ],
     "gallery": [
       {
@@ -25,76 +39,213 @@
     "tags": ["Vue", "TypeScript"]
   },
   {
-    "slug": "sample-project-09",
-    "title": "Sample Project 9",
-    "date": "2026-07-02",
-    "image": "portfolio/sample-project-09.svg",
-    "imageAlt": "Placeholder preview for Sample Project 9",
-    "summary": "One or two sentences about what this project is and what you did on it.",
-    "tags": ["UI/UX"]
+    "slug": "orbit-simulator",
+    "title": "Orbit Simulator",
+    "date": "2025-06-01",
+    "image": "portfolio/orbit-simulator.png",
+    "imageAlt": "Placeholder preview for Orbit Simulator",
+    "summary": "An interactive simulation of orbital mechanics and satellite trajectories",
+    "tags": ["STEM Case", "Interactive", "Animation"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Built an interactive component using Vue 2 and d3.js to simulate how velocity and gravity impact the trajectory of a satellite in orbit. The widget visually responded to changes in velocity and gravity inputs with appropriate consequences: crashing to earth, arriving in stable orbit, or flying off into space relative to the size and direction of the input changes."
+    ],
+    "technologies": ["HTML, CSS", "Vue 2", "p5.js", "TypeScript", "Git (Version Control)"],
+    "videos": [
+      {
+        "title": "Walkthrough",
+        "src": "portfolio/Save-A-Satellite.mp4",
+        "poster": "portfolio/orbit-simulator.png"
+      }
+    ]
   },
   {
-    "slug": "sample-project-08",
-    "title": "Sample Project 8",
-    "date": "2026-05-20",
-    "image": "portfolio/sample-project-08.svg",
-    "imageAlt": "Placeholder preview for Sample Project 8",
-    "summary": "One or two sentences about what this project is and what you did on it."
+    "slug": "protecting-permafrost",
+    "title": "Protecting Permafrost",
+    "date": "2024-06-01",
+    "image": "portfolio/permafrost.png",
+    "imageAlt": "Placeholder preview for Protecting Permafrost",
+    "summary": "An interactive project focused on strategies to protect permafrost regions",
+    "tags": ["STEM Case", "Interactive"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Built an interactive component using Vue 2 and Grapes.js to implement interactive gameplay. The component allowed users to drag and drop values onto SVG outlines and for their decisions to be graded against a rubric."
+    ],
+    "technologies": ["HTML, CSS", "Vue 2", "Grapes.js", "TypeScript", "Git (Version Control)"],
+    "videos": [
+      {
+        "title": "Walkthrough",
+        "src": "portfolio/Permafrost.mp4",
+        "poster": "portfolio/permafrost.png"
+      }
+    ]
   },
   {
-    "slug": "sample-project-07",
-    "title": "Sample Project 7",
-    "date": "2026-03-08",
-    "image": "portfolio/sample-project-07.svg",
-    "imageAlt": "Placeholder preview for Sample Project 7",
-    "summary": "One or two sentences about what this project is and what you did on it."
+    "slug": "sound-wave-visualizer",
+    "title": "Sound Wave Visualizer",
+    "date": "2023-08-01",
+    "image": "portfolio/sound-wave.png",
+    "imageAlt": "Placeholder preview for Sound Wave Visualizer",
+    "summary": "An interactive visualization of sound wave amplitude and frequency",
+    "tags": ["STEM Case", "Interactive", "Animation"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Built an interactive component using Vue 2 and d3.js to visualize how changing the frequency and amplitude of a sound wave affects the resulting sound."
+    ],
+    "technologies": ["HTML, CSS", "Vue 2", "d3.js", "TypeScript", "Git (Version Control)"],
+    "videos": [
+      {
+        "title": "Walkthrough",
+        "src": "portfolio/Soundwave.mp4",
+        "poster": "portfolio/sound-wave.png"
+      }
+    ]
   },
   {
-    "slug": "sample-project-06",
-    "title": "Sample Project 6",
-    "date": "2026-01-14",
-    "image": "portfolio/sample-project-06.svg",
-    "imageAlt": "Placeholder preview for Sample Project 6",
-    "summary": "One or two sentences about what this project is and what you did on it."
+    "slug": "nrg-advocacy",
+    "title": "NRG Advocacy",
+    "date": "2022-09-27",
+    "image": "portfolio/nrg-advocacy.png",
+    "imageAlt": "Placeholder preview for NRG Advocacy",
+    "summary": "An advocacy project focused on energy policy and community engagement",
+    "tags": ["Front end"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Developed a mobile-responsive marketing website with LGND for their client NRG to promote their grassroots advocacy efforts."
+    ],
+    "technologies": ["HTML, CSS", "PHP", "Git (Version Control)"]
   },
   {
-    "slug": "sample-project-05",
-    "title": "Sample Project 5",
-    "date": "2025-11-03",
-    "image": "portfolio/sample-project-05.svg",
-    "imageAlt": "Placeholder preview for Sample Project 5",
-    "summary": "One or two sentences about what this project is and what you did on it."
+    "slug": "ending-pandemics-map",
+    "title": "Ending Pandemics Map",
+    "date": "2022-07-23",
+    "image": "portfolio/ending-pandemics-map.png",
+    "imageAlt": "Placeholder preview for Ending Pandemics Map",
+    "summary": "An interactive map visualizing efforts to end pandemics",
+    "tags": ["Front end", "Interactive"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Developed an interactive map of data about global pandemic prevention programs with LGND for their client Ending Pandemics."
+    ],
+    "technologies": ["HTML, CSS", "jQuery", "d3.js", "Git (Version Control)"]
   },
   {
-    "slug": "sample-project-04",
-    "title": "Sample Project 4",
-    "date": "2025-09-22",
-    "image": "portfolio/sample-project-04.svg",
-    "imageAlt": "Placeholder preview for Sample Project 4",
-    "summary": "One or two sentences about what this project is and what you did on it."
+    "slug": "toyota-quizzes",
+    "title": "Toyota Quizzes",
+    "date": "2022-06-07",
+    "image": "portfolio/toyota-quizzes.png",
+    "imageAlt": "Placeholder preview for Toyota Quizzes",
+    "summary": "An interactive quiz about political literacy developed for Toyota",
+    "tags": ["Front end", "Interactive"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Developed a series of three animated interactive quizzes about political literacy and engagement with LGND for their client Toyota."
+    ],
+    "technologies": ["EJS, Sass", "jQuery", "PHP", "Greensock", "Git (Version Control)"]
   },
   {
-    "slug": "sample-project-03",
-    "title": "Sample Project 3",
-    "date": "2025-07-11",
-    "image": "portfolio/sample-project-03.svg",
-    "imageAlt": "Placeholder preview for Sample Project 3",
-    "summary": "One or two sentences about what this project is and what you did on it."
+    "slug": "sparkfun-alc",
+    "title": "SparkFun ALC",
+    "date": "2020-11-27",
+    "image": "portfolio/sparkfun-alc.png",
+    "imageAlt": "Placeholder preview for SparkFun ALC",
+    "summary": "An application built for SparkFun's À La Carte circuit board design system",
+    "tags": ["Front end"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Developed front end components and built APIs for SparkFun's À La Carte application while working at SparkFun Electronics. This SaaS product allowed customers to build custom electronic boards and components using drop down menus."
+    ],
+    "technologies": [
+      "HTML, CSS",
+      "jQuery",
+      "Angular4 v.11",
+      "Node.js",
+      "MongoDB",
+      "Git (Version Control)"
+    ]
   },
   {
-    "slug": "sample-project-02",
-    "title": "Sample Project 2",
-    "date": "2025-05-06",
-    "image": "portfolio/sample-project-02.svg",
-    "imageAlt": "Placeholder preview for Sample Project 2",
-    "summary": "One or two sentences about what this project is and what you did on it."
+    "slug": "gwp-regional-mobility",
+    "title": "GWP Regional Mobility",
+    "date": "2019-02-27",
+    "image": "portfolio/gwp-regional-mobility.png",
+    "imageAlt": "Placeholder preview for GWP Regional Mobility",
+    "summary": "A project focused on regional mobility solutions developed with LGND",
+    "tags": ["Front end"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Developed an 8-page website with LGND for their client Greater Washington Partnership to help explain and visualize their 7 solution plan for improved mobility in the greater Washington D.C. area, incorporating interactive maps and data visualizations."
+    ],
+    "technologies": ["HTML, Sass", "jQuery", "Git (Version Control)"]
   },
   {
-    "slug": "sample-project-01",
-    "title": "Sample Project 1",
-    "date": "2025-03-10",
-    "image": "portfolio/sample-project-01.svg",
-    "imageAlt": "Placeholder preview for Sample Project 1",
-    "summary": "This is the oldest item, so it won't show on the homepage. Only the nine most recent appear there."
+    "slug": "aireon-style-guide",
+    "title": "Aireon Style Guide",
+    "date": "2018-05-18",
+    "image": "portfolio/aireon-style-guide.png",
+    "imageAlt": "Placeholder preview for Aireon Style Guide",
+    "summary": "Visual style guide for internal use at Aireon",
+    "tags": ["Front end"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Built the responsive front-end markup for a visual style guide with LGND for their client Aireon."
+    ],
+    "technologies": ["HTML", "Sass"]
+  },
+  {
+    "slug": "net10-leasing",
+    "title": "Net10 Leasing",
+    "date": "2016-08-12",
+    "image": "portfolio/net10-leasing.png",
+    "imageAlt": "Placeholder preview for Net10 Leasing",
+    "summary": "Marketing website for Net10 Wireless",
+    "tags": ["Front end"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Built the responsive front-end markup for the marketing website with IMM for their client Net10 Wireless."
+    ],
+    "technologies": ["HTML, CSS", "jQuery", "Git (Version Control)"]
+  },
+  {
+    "slug": "straight-talk-leasing",
+    "title": "Straight Talk Leasing",
+    "date": "2016-08-11",
+    "image": "portfolio/straight-talk-leasing.png",
+    "imageAlt": "Placeholder preview for Straight Talk Leasing",
+    "summary": "Marketing website for Straight Talk Wireless",
+    "tags": ["Front end"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Built the responsive front-end markup for the marketing website with IMM for their client Straight Talk Wireless."
+    ],
+    "technologies": ["HTML, CSS", "jQuery", "Git (Version Control)"]
+  },
+  {
+    "slug": "tracfone-html5-banners",
+    "title": "Tracfone HTML5 Banners",
+    "date": "2016-08-10",
+    "image": "portfolio/tracfone-banners.png",
+    "imageAlt": "Placeholder preview for Tracfone HTML5 Banners",
+    "summary": "HTML5 banner ads for Tracfone",
+    "tags": ["Front end", "Animation"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Managed a team of 3 developers to build 32 suites of animated HTML5 banner ads over a 6-week period of time."
+    ],
+    "technologies": ["HTML, CSS", "Greensock", "Git (Version Control)"]
+  },
+  {
+    "slug": "social-explorer",
+    "title": "Social Explorer",
+    "date": "2016-05-27",
+    "image": "portfolio/social-explorer.png",
+    "imageAlt": "Placeholder preview for Social Explorer",
+    "summary": "Thesis project for my Master's degree in Emergent Digital Practices",
+    "tags": ["Front end", "Animation", "Interactive"],
+    "role": "Sole front-end developer",
+    "description": [
+      "Built the responsive front end markup for the data visualization platform with LGND for their client Social Explorer."
+    ],
+    "technologies": ["HTML, CSS", "Node.js", "p5.js", "Git (Version Control)"]
   }
 ]

@@ -2,9 +2,9 @@
 import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 
-import { formatItemDate, imageUrl, type PortfolioItem } from '@/data/portfolio'
+import { formatItemDate, assetUrl, type LocalizedPortfolioItem } from '@/data/portfolio'
 
-const { item } = defineProps<{ item: PortfolioItem }>()
+const { item } = defineProps<{ item: LocalizedPortfolioItem }>()
 
 const { locale } = useI18n()
 </script>
@@ -15,8 +15,9 @@ const { locale } = useI18n()
   >
     <div class="aspect-[4/3] overflow-hidden bg-surface-muted">
       <img
-        :src="imageUrl(item.image)"
+        :src="assetUrl(item.image)"
         :alt="item.imageAlt"
+        :lang="item.lang"
         width="800"
         height="600"
         loading="lazy"
@@ -26,7 +27,7 @@ const { locale } = useI18n()
     </div>
 
     <div class="flex flex-1 flex-col gap-2 p-4">
-      <h3 class="font-semibold">
+      <h3 class="font-semibold" :lang="item.lang">
         <!-- The link's ::after covers the whole card, so the card is one click target. -->
         <RouterLink
           :to="{ name: 'portfolio-item', params: { slug: item.slug } }"
@@ -35,7 +36,7 @@ const { locale } = useI18n()
           {{ item.title }}
         </RouterLink>
       </h3>
-      <p class="text-sm text-ink-muted">{{ item.summary }}</p>
+      <p class="text-sm text-ink-muted" :lang="item.lang">{{ item.summary }}</p>
 
       <div class="mt-auto flex flex-wrap items-center gap-2 pt-2 text-xs text-ink-muted">
         <time :datetime="item.date">{{ formatItemDate(item.date, locale) }}</time>

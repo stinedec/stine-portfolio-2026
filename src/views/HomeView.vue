@@ -1,14 +1,17 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 
 import ExpertiseSection from '@/components/ExpertiseSection.vue'
 import PortfolioGrid from '@/components/PortfolioGrid.vue'
-import { getRecentItems, portfolioItems } from '@/data/portfolio'
+import { getRecentItems, localizeItem, portfolioItems } from '@/data/portfolio'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-const recentItems = getRecentItems(portfolioItems, 9)
+const recentItems = computed(() =>
+  getRecentItems(portfolioItems, 9).map((item) => localizeItem(item, locale.value)),
+)
 </script>
 
 <template>

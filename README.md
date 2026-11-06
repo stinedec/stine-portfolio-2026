@@ -170,6 +170,23 @@ The site's own text (navigation, labels, buttons) lives in `src/locales/`. Proje
 
 The site uses HTML5 history routing (`/work/my-project`, not `/#/work/my-project`), so the static host must serve `index.html` for any path it doesn't have a file for. Netlify, Vercel and Cloudflare Pages do this with a one-line rewrite rule. Without it, refreshing an item page returns the host's 404.
 
+## Fonts
+
+The site uses the system font until you add your own. To use [Google Fonts](https://fonts.google.com):
+
+1. Pick your fonts and click **Get embed code**. Copy the stylesheet URL (it starts with `https://fonts.googleapis.com/css2?family=`). Only include the weights you use (this site uses 400, 500, 600 and 700), and keep `&display=swap` at the end.
+2. In `index.html`, uncomment the "Google Fonts" `<link>` tags and paste your URL into the stylesheet link.
+3. In `src/assets/styles/tokens.css`, put the font's name first in the font list, keeping the fallbacks after it:
+
+```css
+--font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+--font-heading: 'Fraunces', Georgia, serif; /* optional: a different font for headings */
+```
+
+`--font-sans` is for body text and `--font-heading` is for all headings. Headings use the body font unless you set `--font-heading`. The offline app caches the font files after the first visit.
+
+Loading from Google sends each visitor's IP address to Google. If that matters (for example, under GDPR), self-host the fonts instead: install a package from [Fontsource](https://fontsource.org) (e.g. `npm install @fontsource-variable/inter`), import it at the top of `src/main.ts`, and skip step 2.
+
 ## PWA
 
 The service worker is only generated for production builds. To test it, run `npm run build && npm run preview`. Update the manifest (name, colors, icons) in `vite.config.ts`. The icons in `public/` are placeholders.

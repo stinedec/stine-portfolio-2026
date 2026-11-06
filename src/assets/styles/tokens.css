@@ -3,7 +3,15 @@
  * so colors and type stay consistent and dark mode works everywhere.
  */
 :root {
+  /*
+   * Fonts. To use a Google Font, load it in index.html (see the "Google Fonts"
+   * comment there), then put its name first, e.g. 'Inter', ui-sans-serif, …
+   * Keep the fallbacks: they show while the font loads and if it can't load.
+   */
+  /* Body text, buttons and labels. */
   --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Headings (h1–h6). Same as the body font unless you change it. */
+  --font-heading: var(--font-sans);
 
   /* Brand */
   --brand-50: oklch(0.98 0.02 155);

@@ -131,10 +131,11 @@ const { locale } = useI18n()
   color: var(--ink-muted);
 }
 
+/* Date on its own line, tags below it. */
 .portfolio-card__meta {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 0.5rem;
   margin-top: auto;
   padding-top: 0.5rem;

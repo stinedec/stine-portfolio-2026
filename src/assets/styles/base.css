@@ -1,7 +1,51 @@
 /* Page-wide defaults. Component styles (unlayered) always win over these. */
 @layer base {
+  @property --percentage-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 30%;
+  }
+  @property --percentage-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 60%;
+  }
+  @property --percentage-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 63%;
+  }
+  @property --percentage-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 80%;
+  }
+  @property --percentage-5 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 90%;
+  }
   body {
-    background-color: var(--surface);
+    --percentage-1: 30%;
+    --percentage-2: 60%;
+    --percentage-3: 63%;
+    --percentage-4: 80%;
+    --percentage-5: 90%;
+    animation: slide 3s ease-in-out infinite alternate;
+    /* background-color: var(--surface); */
+    background-image: linear-gradient(
+      -60deg,
+      var(--gradient-4),
+      var(--gradient-4) var(--percentage-1),
+      var(--gradient-2) var(--percentage-1),
+      var(--gradient-2) var(--percentage-2),
+      var(--gradient-5) var(--percentage-2),
+      var(--gradient-5) var(--percentage-3),
+      var(--gradient-3) var(--percentage-3),
+      var(--gradient-3) var(--percentage-4),
+      var(--gradient-1) var(--percentage-4),
+      var(--gradient-1) var(--percentage-5)
+    );
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -14,10 +58,27 @@
   h5,
   h6 {
     font-family: var(--font-heading);
+    letter-spacing: var(--tracking-loose);
   }
 
   :focus-visible {
     outline: 2px solid var(--focus-ring);
     outline-offset: 2px;
+  }
+  @keyframes slide {
+    0% {
+      --percentage-1: 10%;
+      --percentage-2: 60%;
+      --percentage-3: 63%;
+      --percentage-4: 70%;
+      --percentage-5: 95%;
+    }
+    100% {
+      --percentage-1: 30%;
+      --percentage-2: 40%;
+      --percentage-3: 41%;
+      --percentage-4: 80%;
+      --percentage-5: 90%;
+    }
   }
 }

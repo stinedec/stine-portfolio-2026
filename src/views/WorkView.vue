@@ -70,7 +70,7 @@ function selectTag(tag: string | undefined) {
       </div>
 
       <!-- Announced to screen readers when the filter changes. -->
-      <p class="work__intro lead" aria-live="polite">
+      <p class="sr-only work__intro lead" aria-live="polite">
         {{
           activeTag
             ? t('work.filteredIntro', { count: items.length, tag: activeTag }, items.length)

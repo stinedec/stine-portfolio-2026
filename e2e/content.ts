@@ -26,6 +26,12 @@ export const items = readJson<Item[]>('../src/data/portfolio.json').sort((a, b) 
   b.date.localeCompare(a.date),
 )
 
+/** The site name from .env (VITE_APP_TITLE), shown after each page's title in the browser tab. */
+export const appTitle =
+  /^VITE_APP_TITLE=(.*)$/m
+    .exec(readFileSync(new URL('../.env', import.meta.url), 'utf8'))?.[1]
+    ?.trim() || 'Portfolio'
+
 export const en = readJson<{ home: { greeting: string } }>('../src/locales/en.json')
 
 /** The first item with a self-hosted video, and that video. */

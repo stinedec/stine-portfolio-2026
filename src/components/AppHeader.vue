@@ -8,7 +8,7 @@ import { useDarkMode } from '@/composables/useDarkMode'
 const { t } = useI18n()
 const { isDark, toggle } = useDarkMode()
 
-const appTitle = import.meta.env.VITE_APP_TITLE || 'Portfolio'
+const appTitle = import.meta.env.VITE_APP_TITLE || 'stinedec'
 
 const links = [
   { to: { name: 'home' }, label: 'nav.home' },

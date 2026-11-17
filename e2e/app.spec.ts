@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 import {
+  appTitle,
   captionedVideo,
   en,
   items,
@@ -13,7 +14,8 @@ const oldest = items.at(-1)!
 
 test('home page shows the intro and the nine most recent portfolio items', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(en.home.greeting)
+  // The page's main heading (visually hidden; the styled title is shown instead).
+  await expect(page.locator('#intro-heading')).toHaveText(en.home.greeting)
 
   const recentWork = page.getByRole('region', { name: 'Recent work' })
   await expect(recentWork.getByRole('article')).toHaveCount(Math.min(9, items.length))
@@ -38,7 +40,7 @@ test('a portfolio card opens that item’s page', async ({ page }) => {
   await card.click()
   await expect(page).toHaveURL(/\/work\/[a-z0-9-]+$/)
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(title)
-  await expect(page).toHaveTitle(`${title} · Portfolio`)
+  await expect(page).toHaveTitle(`${title} · ${appTitle}`)
 
   await page.getByRole('link', { name: 'All work' }).click()
   await expect(page).toHaveURL(/\/work$/)
@@ -133,7 +135,7 @@ test('switching language translates portfolio items that have a translation', as
 
   const title = page.getByRole('heading', { level: 1, name: spanishTitle })
   await expect(title).toHaveAttribute('lang', 'es')
-  await expect(page).toHaveTitle(`${spanishTitle} · Portfolio`)
+  await expect(page).toHaveTitle(`${spanishTitle} · ${appTitle}`)
 })
 
 test('untranslated projects keep their English text, marked as English', async ({ page }) => {

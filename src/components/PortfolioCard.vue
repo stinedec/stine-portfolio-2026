@@ -98,7 +98,10 @@ const { locale } = useI18n()
 }
 
 .portfolio-card__title {
+  font-size: var(--text-lg);
+  line-height: var(--text-lg-lh);
   font-weight: 600;
+  letter-spacing: var(--tracking-loose);
 }
 
 .portfolio-card:hover .portfolio-card__link {

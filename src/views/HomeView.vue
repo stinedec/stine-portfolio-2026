@@ -5,6 +5,7 @@ import { RouterLink } from 'vue-router'
 
 import ExpertiseSection from '@/components/ExpertiseSection.vue'
 import PortfolioGrid from '@/components/PortfolioGrid.vue'
+import TitleComponent from '@/components/TitleComponent.vue'
 import { getRecentItems, localizeItem, portfolioItems } from '@/data/portfolio'
 
 const { t, locale } = useI18n()
@@ -17,7 +18,8 @@ const recentItems = computed(() =>
 <template>
   <div class="home">
     <section aria-labelledby="intro-heading" class="home__intro">
-      <h1 id="intro-heading" class="heading heading--page">{{ t('home.greeting') }}</h1>
+      <h1 id="intro-heading" class="sr-only heading heading--page">{{ t('home.greeting') }}</h1>
+      <TitleComponent>(chri)stinedec(arteret)</TitleComponent>
       <p class="home__role">{{ t('home.role') }}</p>
       <p class="lead">{{ t('home.blurb') }}</p>
     </section>
@@ -44,7 +46,8 @@ const recentItems = computed(() =>
 }
 
 .home__intro {
-  max-width: 42rem;
+  /* max-width: 42rem; */
+  text-align: center;
 }
 
 .home__intro > * + * {

@@ -13,6 +13,7 @@ interface Item {
   slug: string
   title: string
   date: string
+  tags?: string[]
   videos?: Video[]
   translations?: Record<string, { title?: string }>
 }

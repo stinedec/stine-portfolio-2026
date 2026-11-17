@@ -50,7 +50,7 @@
     "description": [
       "Built an interactive component using Vue 2 and d3.js to simulate how velocity and gravity impact the trajectory of a satellite in orbit. The widget visually responded to changes in velocity and gravity inputs with appropriate consequences: crashing to earth, arriving in stable orbit, or flying off into space relative to the size and direction of the input changes."
     ],
-    "technologies": ["HTML, CSS", "Vue 2", "p5.js", "TypeScript", "Git (Version Control)"],
+    "technologies": ["Vue 2", "Grapes.js", "p5.js", "TypeScript"],
     "videos": [
       {
         "title": "Walkthrough",
@@ -71,7 +71,7 @@
     "description": [
       "Built an interactive component using Vue 2 and Grapes.js to implement interactive gameplay. The component allowed users to drag and drop values onto SVG outlines and for their decisions to be graded against a rubric."
     ],
-    "technologies": ["HTML, CSS", "Vue 2", "Grapes.js", "TypeScript", "Git (Version Control)"],
+    "technologies": ["Vue 2", "Grapes.js", "TypeScript"],
     "videos": [
       {
         "title": "Walkthrough",
@@ -92,7 +92,7 @@
     "description": [
       "Built an interactive component using Vue 2 and d3.js to visualize how changing the frequency and amplitude of a sound wave affects the resulting sound."
     ],
-    "technologies": ["HTML, CSS", "Vue 2", "d3.js", "TypeScript", "Git (Version Control)"],
+    "technologies": ["Vue 2", "d3.js", "TypeScript", "Grapes.js"],
     "videos": [
       {
         "title": "Walkthrough",
@@ -113,7 +113,7 @@
     "description": [
       "Developed a mobile-responsive marketing website with LGND for their client NRG to promote their grassroots advocacy efforts."
     ],
-    "technologies": ["HTML, CSS", "PHP", "Git (Version Control)"]
+    "technologies": ["PHP", "HTML, CSS", "Git (Version Control)"]
   },
   {
     "slug": "ending-pandemics-map",
@@ -127,7 +127,7 @@
     "description": [
       "Developed an interactive map of data about global pandemic prevention programs with LGND for their client Ending Pandemics."
     ],
-    "technologies": ["HTML, CSS", "jQuery", "d3.js", "Git (Version Control)"]
+    "technologies": ["jQuery", "d3.js", "HTML, CSS", "Git (Version Control)"]
   },
   {
     "slug": "toyota-quizzes",
@@ -141,7 +141,7 @@
     "description": [
       "Developed a series of three animated interactive quizzes about political literacy and engagement with LGND for their client Toyota."
     ],
-    "technologies": ["EJS, Sass", "jQuery", "PHP", "Greensock", "Git (Version Control)"]
+    "technologies": ["EJS, Sass", "PHP", "Greensock", "jQuery", "Git (Version Control)"]
   },
   {
     "slug": "sparkfun-alc",
@@ -156,11 +156,11 @@
       "Developed front end components and built APIs for SparkFun's À La Carte application while working at SparkFun Electronics. This SaaS product allowed customers to build custom electronic boards and components using drop down menus."
     ],
     "technologies": [
-      "HTML, CSS",
-      "jQuery",
       "Angular4 v.11",
       "Node.js",
       "MongoDB",
+      "HTML, CSS",
+      "jQuery",
       "Git (Version Control)"
     ]
   },
@@ -246,6 +246,6 @@
     "description": [
       "Built the responsive front end markup for the data visualization platform with LGND for their client Social Explorer."
     ],
-    "technologies": ["HTML, CSS", "Node.js", "p5.js", "Git (Version Control)"]
+    "technologies": ["Node.js", "p5.js", "HTML, CSS", "Git (Version Control)"]
   }
 ]

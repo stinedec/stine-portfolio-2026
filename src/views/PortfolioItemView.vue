@@ -3,9 +3,17 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 
+import PortfolioGrid from '@/components/PortfolioGrid.vue'
 import PortfolioVideo from '@/components/PortfolioVideo.vue'
 import TagList from '@/components/TagList.vue'
-import { assetUrl, formatItemDate, getItemBySlug, localizeItem } from '@/data/portfolio'
+import {
+  assetUrl,
+  formatItemDate,
+  getItemBySlug,
+  getRelatedItems,
+  localizeItem,
+  portfolioItems,
+} from '@/data/portfolio'
 
 const { slug } = defineProps<{ slug: string }>()
 
@@ -16,6 +24,13 @@ const item = computed(() => {
   const found = getItemBySlug(slug)
   return found && localizeItem(found, locale.value)
 })
+// Up to three other projects that share the most tags with this one.
+const relatedItems = computed(() => {
+  const found = getItemBySlug(slug)
+  if (!found) return []
+  return getRelatedItems(found, portfolioItems, 3).map((other) => localizeItem(other, locale.value))
+})
+
 const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.value.url))
 </script>
 
@@ -75,6 +90,12 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
         <span v-if="isExternal" class="sr-only">{{ t('a11y.opensInNewTab') }}</span>
       </a>
     </div>
+    <div v-if="item.technologies?.length" class="project__technologies">
+      <h2 class="heading heading--section">{{ t('portfolio.technologies') }}</h2>
+      <ul>
+        <li v-for="tech in item.technologies" :key="tech">{{ tech }}</li>
+      </ul>
+    </div>
 
     <section v-if="item.videos?.length" aria-labelledby="videos-heading" class="project__videos">
       <h2 id="videos-heading" class="heading heading--section">
@@ -107,6 +128,13 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
           />
         </li>
       </ul>
+    </section>
+
+    <section v-if="relatedItems.length" aria-labelledby="related-heading" class="project__related">
+      <h2 id="related-heading" class="heading heading--section">
+        {{ t('portfolio.related') }}
+      </h2>
+      <PortfolioGrid :items="relatedItems" />
     </section>
   </article>
 </template>
@@ -199,6 +227,15 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
 
 .project__video {
   max-width: 56rem;
+}
+
+.project__related {
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.project__related > * + * {
+  margin-top: 1.5rem;
 }
 
 .project__gallery > * + * {

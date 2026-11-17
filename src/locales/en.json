@@ -46,6 +46,8 @@
     "role": "Role",
     "visit": "Visit project",
     "gallery": "Gallery",
+    "related": "Related projects",
+    "technologies": "Technologies",
     "videos": "Videos",
     "transcript": "Transcript",
     "videoFallback": "Your browser can't play this video.",

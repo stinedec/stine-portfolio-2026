@@ -15,6 +15,8 @@ export interface PortfolioItem {
   summary: string
   /** Optional longer write-up for the item's page, one string per paragraph. */
   description?: string[]
+  /** Optional list of technologies used in the project. */
+  technologies?: string[]
   /** Optional: your role on the project, e.g. "Sole front-end developer". */
   role?: string
   /** Optional extra images for the item's page. */
@@ -41,6 +43,7 @@ export interface PortfolioItemTranslation {
   imageAlt?: string
   summary?: string
   description?: string[]
+  technologies?: string[]
   role?: string
   gallery?: { alt?: string }[]
   videos?: PortfolioVideoTranslation[]
@@ -155,6 +158,28 @@ export function getAllTags(items: { tags?: string[] }[]): { tag: string; count: 
   return [...counts]
     .map(([tag, count]) => ({ tag, count }))
     .sort((a, b) => a.tag.localeCompare(b.tag))
+}
+
+/**
+ * Other items that share tags with `item`, best match first: the most shared
+ * tags, then the newest. Items with no tags in common are left out.
+ */
+export function getRelatedItems<T extends { slug: string; date: string; tags?: string[] }>(
+  item: T,
+  items: T[],
+  limit: number,
+): T[] {
+  const tags = new Set(item.tags)
+  return items
+    .filter((other) => other.slug !== item.slug)
+    .map((other) => ({
+      other,
+      shared: new Set(other.tags?.filter((tag) => tags.has(tag))).size,
+    }))
+    .filter(({ shared }) => shared > 0)
+    .sort((a, b) => b.shared - a.shared || b.other.date.localeCompare(a.other.date))
+    .slice(0, limit)
+    .map(({ other }) => other)
 }
 
 /** Items with this tag, or all items when `tag` is undefined. */

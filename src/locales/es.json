@@ -46,6 +46,8 @@
     "role": "Rol",
     "visit": "Ver proyecto",
     "gallery": "Galería",
+    "related": "Proyectos relacionados",
+    "technologies": "Tecnologías",
     "videos": "Videos",
     "transcript": "Transcripción",
     "videoFallback": "Tu navegador no puede reproducir este video.",

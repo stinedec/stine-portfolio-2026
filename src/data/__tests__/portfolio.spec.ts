@@ -12,6 +12,7 @@ import {
   assetUrl,
   filterByTag,
   getAllTags,
+  getRelatedItems,
   localizeItem,
   portfolioItems,
   type PortfolioItem,
@@ -49,6 +50,41 @@ describe('getAllTags', () => {
 
   it('counts a tag listed twice on one item only once', () => {
     expect(getAllTags([{ tags: ['Vue', 'Vue'] }])).toEqual([{ tag: 'Vue', count: 1 }])
+  })
+})
+
+describe('getRelatedItems', () => {
+  const items = [
+    { slug: 'current', date: '2026-01-01', tags: ['Vue', 'Animation', 'D3'] },
+    { slug: 'one-shared-new', date: '2025-06-01', tags: ['Vue'] },
+    { slug: 'one-shared-old', date: '2020-01-01', tags: ['Animation'] },
+    { slug: 'two-shared', date: '2019-01-01', tags: ['Vue', 'D3', 'Other'] },
+    { slug: 'none-shared', date: '2026-02-01', tags: ['Other'] },
+    { slug: 'no-tags', date: '2026-03-01' },
+  ]
+  const current = items[0]!
+
+  it('orders by most shared tags, then newest', () => {
+    expect(getRelatedItems(current, items, 9).map((i) => i.slug)).toEqual([
+      'two-shared',
+      'one-shared-new',
+      'one-shared-old',
+    ])
+  })
+
+  it('leaves out the item itself and items with no tags in common', () => {
+    const slugs = getRelatedItems(current, items, 9).map((i) => i.slug)
+    expect(slugs).not.toContain('current')
+    expect(slugs).not.toContain('none-shared')
+    expect(slugs).not.toContain('no-tags')
+  })
+
+  it('keeps only the limit', () => {
+    expect(getRelatedItems(current, items, 2)).toHaveLength(2)
+  })
+
+  it('returns nothing for an item without tags', () => {
+    expect(getRelatedItems(items[5]!, items, 3)).toEqual([])
   })
 })
 

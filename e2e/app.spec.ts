@@ -181,3 +181,28 @@ test('the work page filters projects by tag', async ({ page }) => {
   await expect(page).toHaveURL(/\/work$/)
   await expect(grid.getByRole('article')).toHaveCount(total)
 })
+
+test('project pages link to related projects that share a tag', async ({ page }) => {
+  const item = items.find((i) =>
+    items.some((o) => o !== i && o.tags?.some((t) => i.tags?.includes(t))),
+  )
+  test.skip(!item, 'No two projects share a tag.')
+  await page.goto(`/work/${item!.slug}`)
+
+  const related = page.getByRole('region', { name: 'Related projects' })
+  const cards = related.getByRole('article')
+  await expect(cards.first()).toBeVisible()
+  expect(await cards.count()).toBeLessThanOrEqual(3)
+
+  // Every related card shares at least one tag with this project, and isn't this project.
+  for (const card of await cards.all()) {
+    await expect(card.getByRole('heading')).not.toHaveText(item!.title)
+    const cardTags = await card.getByRole('listitem').allInnerTexts()
+    expect(cardTags.some((tag) => item!.tags!.includes(tag.trim()))).toBe(true)
+  }
+
+  // Clicking one opens that project.
+  const title = (await cards.first().getByRole('heading').innerText()).trim()
+  await cards.first().getByRole('link').click()
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(title)
+})

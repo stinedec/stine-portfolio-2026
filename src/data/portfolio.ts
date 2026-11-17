@@ -117,6 +117,7 @@ export function localizeItem(item: PortfolioItem, locale: string): LocalizedPort
     imageAlt: tr.imageAlt ?? base.imageAlt,
     summary: tr.summary ?? base.summary,
     description: tr.description ?? base.description,
+    technologies: tr.technologies ?? base.technologies,
     role: tr.role ?? base.role,
     gallery: base.gallery?.map((shot, i) => ({ ...shot, alt: tr.gallery?.[i]?.alt ?? shot.alt })),
     videos: base.videos?.map((video, i) => {

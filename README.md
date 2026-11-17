@@ -155,6 +155,7 @@ The site's own text (navigation, labels, buttons) lives in `src/locales/`. Proje
     "summary": "Una o dos frases sobre el proyecto.",
     "description": ["Primer párrafo.", "Segundo párrafo."],
     "role": "Desarrollador front-end",
+    "technologies": ["HTML y CSS", "Vue 3"],
     "imageAlt": "Captura de la página de inicio",
     "gallery": [{ "alt": "Primera imagen" }, {}],
     "videos": [{ "title": "Recorrido", "captions": "portfolio/my-project.es.vtt", "transcript": ["..."] }]

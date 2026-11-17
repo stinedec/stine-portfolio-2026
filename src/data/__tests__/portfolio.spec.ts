@@ -117,6 +117,7 @@ describe('localizeItem', () => {
     title: 'Demo',
     summary: 'English summary',
     role: 'Developer',
+    technologies: ['HTML, CSS', 'Vue'],
     gallery: [
       { image: 'a.jpg', alt: 'First' },
       { image: 'b.jpg', alt: 'Second' },
@@ -127,6 +128,7 @@ describe('localizeItem', () => {
     translations: {
       es: {
         title: 'Demostración',
+        technologies: ['HTML y CSS', 'Vue'],
         gallery: [{}, { alt: 'Segunda' }],
         videos: [{ title: 'Recorrido', captions: 'demo.es.vtt' }],
       },
@@ -138,6 +140,7 @@ describe('localizeItem', () => {
     expect(es.title).toBe('Demostración')
     expect(es.summary).toBe('English summary')
     expect(es.role).toBe('Developer')
+    expect(es.technologies).toEqual(['HTML y CSS', 'Vue'])
     expect(es.lang).toBe('es')
     expect(es).not.toHaveProperty('translations')
   })
@@ -159,6 +162,7 @@ describe('localizeItem', () => {
   it('returns the English text, marked "en", when there is no translation', () => {
     const fr = localizeItem(base, 'fr')
     expect(fr.title).toBe('Demo')
+    expect(fr.technologies).toEqual(['HTML, CSS', 'Vue'])
     expect(fr.lang).toBe('en')
     expect(localizeItem(base, 'en').lang).toBe('en')
   })

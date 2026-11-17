@@ -26,21 +26,23 @@ const { locale } = useI18n()
     </div>
 
     <div class="portfolio-card__body">
-      <h3 class="portfolio-card__title" :lang="item.lang">
-        <!-- The link's ::after covers the whole card, so the card is one click target. -->
-        <RouterLink
-          :to="{ name: 'portfolio-item', params: { slug: item.slug } }"
-          class="portfolio-card__link"
-        >
-          {{ item.title }}
-        </RouterLink>
-      </h3>
+      <header class="portfolio-card__header">
+        <h3 class="portfolio-card__title" :lang="item.lang">
+          <!-- The link's ::after covers the whole card, so the card is one click target. -->
+          <RouterLink
+            :to="{ name: 'portfolio-item', params: { slug: item.slug } }"
+            class="portfolio-card__link"
+          >
+            {{ item.title }}
+          </RouterLink>
+        </h3>
+        <time :datetime="item.date" class="portfolio-card__date">
+          {{ formatItemDate(item.date, locale) }}
+        </time>
+      </header>
       <p class="portfolio-card__summary" :lang="item.lang">{{ item.summary }}</p>
 
-      <div class="portfolio-card__meta">
-        <time :datetime="item.date">{{ formatItemDate(item.date, locale) }}</time>
-        <TagList v-if="item.tags?.length" :tags="item.tags" />
-      </div>
+      <TagList v-if="item.tags?.length" :tags="item.tags" class="portfolio-card__tags" />
     </div>
   </article>
 </template>
@@ -97,6 +99,19 @@ const { locale } = useI18n()
   padding: 1rem;
 }
 
+/* Title with the date right under it. */
+.portfolio-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.portfolio-card__date {
+  font-size: var(--text-xs);
+  line-height: var(--text-xs-lh);
+  color: var(--ink-muted);
+}
+
 .portfolio-card__title {
   font-size: var(--text-lg);
   line-height: var(--text-lg-lh);
@@ -131,12 +146,8 @@ const { locale } = useI18n()
   color: var(--ink-muted);
 }
 
-/* Date on its own line, tags below it. */
-.portfolio-card__meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
+/* Tags sit at the bottom of the card, however long the summary is. */
+.portfolio-card__tags {
   margin-top: auto;
   padding-top: 0.5rem;
   font-size: var(--text-xs);

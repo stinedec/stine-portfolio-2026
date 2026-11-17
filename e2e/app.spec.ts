@@ -14,8 +14,9 @@ const oldest = items.at(-1)!
 
 test('home page shows the intro and the nine most recent portfolio items', async ({ page }) => {
   await page.goto('/')
-  // The page's main heading (visually hidden; the styled title is shown instead).
-  await expect(page.locator('#intro-heading')).toHaveText(en.home.greeting)
+  // One main heading for screen readers. It's visually hidden; the styled
+  // title shown instead is hidden from screen readers.
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(en.home.greeting)
 
   const recentWork = page.getByRole('region', { name: 'Recent work' })
   await expect(recentWork.getByRole('article')).toHaveCount(Math.min(9, items.length))

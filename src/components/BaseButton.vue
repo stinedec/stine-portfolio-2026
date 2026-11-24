@@ -36,12 +36,12 @@ const { variant = 'primary', type = 'button' } = defineProps<{
 }
 
 .button--primary {
-  background-color: var(--brand-600);
+  background-color: var(--accent-bg);
   color: white;
 }
 
 .button--primary:hover {
-  background-color: var(--brand-700);
+  background-color: var(--accent-bg-hover);
 }
 
 .button--secondary {

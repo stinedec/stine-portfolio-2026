@@ -6,7 +6,7 @@ My portfolio site, built from my Vue 3 + Vite starter.
 
 Portfolio items live in [`src/data/portfolio.json`](src/data/portfolio.json). The homepage shows the nine most recent, sorted by `date`, with a "See all work" link to `/work`, which shows every item.
 
-1. Put the preview image in `public/portfolio/`. A 4:3 image around 1200×900 works best.
+1. Put two images in `public/portfolio/`: a card image for the project's card on the homepage and Work page, and a header image for the top of the project's own page. Both show at 4:3, so an image around 1200×900 works best. They can be the same file.
 2. Add an entry to `portfolio.json`:
 
 ```json
@@ -14,8 +14,10 @@ Portfolio items live in [`src/data/portfolio.json`](src/data/portfolio.json). Th
   "slug": "my-project",
   "title": "My Project",
   "date": "2026-10-01",
-  "image": "portfolio/my-project.jpg",
-  "imageAlt": "Screenshot of the My Project dashboard",
+  "cardImage": "portfolio/my-project-card.jpg",
+  "cardImageAlt": "The My Project logo",
+  "headerImage": "portfolio/my-project.jpg",
+  "headerImageAlt": "Screenshot of the My Project dashboard",
   "summary": "One or two sentences about the project and your role.",
   "url": "https://example.com",
   "tags": ["Vue", "UI/UX"]
@@ -32,7 +34,7 @@ Each item also gets its own page at `/work/<slug>`, which the homepage card link
 }
 ```
 
-`url`, `tags`, `role`, `description` and `gallery` are all optional. `url` shows as a "Visit project" button on the item's page. `image` can also be a full `https://` URL. Field types are defined in [`src/data/portfolio.ts`](src/data/portfolio.ts), and `npm test` checks that every slug is unique, every date is valid and every local image (including gallery images) exists.
+`url`, `tags`, `role`, `description` and `gallery` are all optional. `url` shows as a "Visit project" button on the item's page. `cardImage` and `headerImage` can also be full `https://` URLs. Field types are defined in [`src/data/portfolio.ts`](src/data/portfolio.ts), and `npm test` checks that every slug is unique, every date is valid and every local image (card, header and gallery) exists.
 
 The intro blurb is in `src/locales/en.json` (and `es.json`) under `home`.
 
@@ -156,7 +158,8 @@ The site's own text (navigation, labels, buttons) lives in `src/locales/`. Proje
     "description": ["Primer párrafo.", "Segundo párrafo."],
     "role": "Desarrollador front-end",
     "technologies": ["HTML y CSS", "Vue 3"],
-    "imageAlt": "Captura de la página de inicio",
+    "cardImageAlt": "El logotipo de Mi proyecto",
+    "headerImageAlt": "Captura de la página de inicio",
     "gallery": [{ "alt": "Primera imagen" }, {}],
     "videos": [{ "title": "Recorrido", "captions": "portfolio/my-project.es.vtt", "transcript": ["..."] }]
   }

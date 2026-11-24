@@ -47,6 +47,8 @@
     "visit": "Visit project",
     "gallery": "Gallery",
     "related": "Related projects",
+    "company": "Company",
+    "client": "Client",
     "technologies": "Technologies",
     "videos": "Videos",
     "transcript": "Transcript",
@@ -54,8 +56,36 @@
     "downloadVideo": "Download it instead."
   },
   "about": {
-    "title": "About this template",
-    "intro": "A lean starting point with the tooling decisions already made, so new projects can start on features instead of setup."
+    "title": "About",
+    "intro": [
+      "I'm a senior front-end engineer in Boulder, Colorado, with more than 10 years of experience building accessible, interactive web experiences.",
+      "I hold a Master's degree in Emergent Digital Practices. Since then I've built marketing sites, interactive maps, data visualizations and animated quizzes for agency clients, front-end components and APIs for a SaaS product at SparkFun Electronics, and most recently interactive science simulations for students.",
+      "I build to WCAG 2.1 AA from the start, and I led an accessibility audit of a 34-product interactive learning library, prototyping fixes and delivering a roadmap for improvements.",
+      "I do my best work in close partnership with designers and content teams, bringing design thinking, a strong visual eye and a knack for troubleshooting to every project."
+    ],
+    "highlightsHeading": "Career highlights",
+    "projectsLabel": "Projects",
+    "highlights": {
+      "stem": {
+        "title": "Interactive STEM simulations at ExploreLearning",
+        "text": "Interactive science simulations for students, built in Vue 2 and TypeScript with d3.js, p5.js and Grapes.js: satellite orbits, an earthquake warning system, sound waves and permafrost protection."
+      },
+      "sparkfun": {
+        "title": "SparkFun Electronics",
+        "text": "Front-end components and APIs for À La Carte, a SaaS product that let customers design custom circuit boards from drop-down menus. Built with Angular, Node.js and MongoDB."
+      },
+      "agency": {
+        "title": "Agency work with LGND and IMM",
+        "text": "Marketing sites, interactive maps, data visualizations and animated quizzes for clients including Toyota, Ending Pandemics, NRG, Greater Washington Partnership and Aireon. For Tracfone, I managed a team of 3 developers who built 32 suites of animated HTML5 banner ads in 6 weeks."
+      },
+      "education": {
+        "title": "Master's degree in Emergent Digital Practices",
+        "text": "My thesis project was the front end of a data visualization platform for Social Explorer, built with Node.js and p5.js."
+      }
+    },
+    "toolsHeading": "Tools I've worked with",
+    "toolsIntro": "Collected from the projects in my portfolio, most used first.",
+    "seeWork": "See my work"
   },
   "notFound": {
     "title": "Page not found",

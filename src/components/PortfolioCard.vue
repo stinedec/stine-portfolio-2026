@@ -5,7 +5,11 @@ import { RouterLink } from 'vue-router'
 import TagList from '@/components/TagList.vue'
 import { formatItemDate, assetUrl, type LocalizedPortfolioItem } from '@/data/portfolio'
 
-const { item } = defineProps<{ item: LocalizedPortfolioItem }>()
+const { item, headingLevel = 3 } = defineProps<{
+  item: LocalizedPortfolioItem
+  /** The title's heading level: one below the heading of the section the card is in. */
+  headingLevel?: 2 | 3
+}>()
 
 const { locale } = useI18n()
 </script>
@@ -14,8 +18,8 @@ const { locale } = useI18n()
   <article class="portfolio-card">
     <div class="portfolio-card__media">
       <img
-        :src="assetUrl(item.image)"
-        :alt="item.imageAlt"
+        :src="assetUrl(item.cardImage)"
+        :alt="item.cardImageAlt"
         :lang="item.lang"
         width="800"
         height="600"
@@ -27,7 +31,7 @@ const { locale } = useI18n()
 
     <div class="portfolio-card__body">
       <header class="portfolio-card__header">
-        <h3 class="portfolio-card__title" :lang="item.lang">
+        <component :is="`h${headingLevel}`" class="portfolio-card__title" :lang="item.lang">
           <!-- The link's ::after covers the whole card, so the card is one click target. -->
           <RouterLink
             :to="{ name: 'portfolio-item', params: { slug: item.slug } }"
@@ -35,14 +39,15 @@ const { locale } = useI18n()
           >
             {{ item.title }}
           </RouterLink>
-        </h3>
+        </component>
         <time :datetime="item.date" class="portfolio-card__date">
           {{ formatItemDate(item.date, locale) }}
         </time>
       </header>
       <p class="portfolio-card__summary" :lang="item.lang">{{ item.summary }}</p>
 
-      <TagList v-if="item.tags?.length" :tags="item.tags" class="portfolio-card__tags" />
+      <!-- Tags aren't translated, so mark them English for screen readers on other-language pages. -->
+      <TagList v-if="item.tags?.length" :tags="item.tags" lang="en" class="portfolio-card__tags" />
     </div>
   </article>
 </template>

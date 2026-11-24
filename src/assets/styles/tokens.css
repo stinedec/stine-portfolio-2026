@@ -19,21 +19,35 @@
   --brand-500: oklch(74.656% 0.16057 69.054);
   --brand-600: oklch(64.044% 0.18567 36.072);
   --brand-700: oklch(55.623% 0.18485 35.032);
+  --brand-50-o: oklch(0.98 0.02 155 / 0.5);
+  --brand-100-o: oklch(90.21% 0.09077 80.834 / 0.5);
+  --brand-500-o: oklch(74.656% 0.16057 69.054 / 0.5);
+  --brand-600-o: oklch(64.044% 0.18567 36.072 / 0.5);
+  --brand-700-o: oklch(55.623% 0.18485 35.032 / 0.5);
 
-  --gradient-1: oklch(89.477% 0.03687 216.163);
-  --gradient-2: oklch(92.616% 0.03605 179.381);
-  --gradient-3: oklch(87.548% 0.02644 248.22);
-  --gradient-4: oklch(87.831% 0.04702 303.253);
+  --gradient-1: oklch(82.866% 0.07248 217.541);
+  --gradient-2: oklch(85.565% 0.05979 177.479);
+  /* Lightened from 74.294% so muted and orange text stay readable on this stripe. */
+  --gradient-3: oklch(78% 0.06609 248.065);
+  --gradient-4: oklch(84.551% 0.05494 304.288);
   --gradient-5: oklch(92.893% 0.05604 79.244);
 
   /* Theme colors: these flip in dark mode (see .dark below). */
-  --surface: oklch(0.99 0 0);
-  --surface-muted: oklch(0.965 0.005 250);
+  /* --surface: oklch(0.99 0 0); */
+  --surface: oklch(0.9 0.04 220.77);
+  --surface-muted: oklch(89.673% 0.03606 221.343);
   --ink: oklch(0.22 0.02 250);
-  --ink-muted: oklch(0.45 0.02 250);
+  --ink-muted: oklch(0.38 0.02 250);
   --line: oklch(0.9 0.01 250);
-  /* Brand-colored text: active nav link, hovered card title, 404 link. */
-  --accent-text: var(--brand-600);
+  /*
+   * Brand-colored text: active nav link, hovered card title, project facts, 404 link.
+   * A darker orange than --brand-600 so it passes WCAG AA (4.5:1) on every background,
+   * including each background stripe.
+   */
+  --accent-text: oklch(0.4 0.15 36);
+  /* Fill for buttons and selected chips with white text (6.5:1). */
+  --accent-bg: oklch(0.5 0.17 36);
+  --accent-bg-hover: oklch(0.44 0.16 36);
   /* Round icon badges in the expertise section. */
   --badge-bg: var(--brand-100);
   --badge-ink: var(--brand-700);
@@ -78,17 +92,19 @@
 
 /* Class-based dark mode: `.dark` on <html> (see composables/useDarkMode.ts). */
 .dark {
-  --surface: oklch(29.829% 0.0475 217.575);
+  /* --surface: oklch(29.829% 0.0475 217.575); oklch(0.36 0.05 217.06); */
+  --surface: oklch(0.36 0.05 217.06);
   --surface-muted: oklch(26.864% 0.04466 219.723);
   --gradient-1: oklch(0.3 0.06 220.76);
   --gradient-2: oklch(0.31 0.06 171.67);
   --gradient-3: oklch(26.77% 0.07968 252.522);
   --gradient-4: oklch(23.211% 0.09799 295.683);
-  --gradient-5: oklch(49.111% 0.11769 57.167);
+  /* Darkened from 49.111% so light text stays readable on this stripe. */
+  --gradient-5: oklch(38% 0.11769 57.167);
   --ink: oklch(0.95 0.01 250);
-  --ink-muted: oklch(0.72 0.02 250);
+  --ink-muted: oklch(0.78 0.02 250);
   --line: oklch(0.32 0.01 250);
-  --accent-text: var(--brand-500);
+  --accent-text: oklch(0.8 0.15 69);
   --badge-bg: color-mix(in oklab, var(--brand-700) 25%, transparent);
   --badge-ink: var(--brand-500);
 

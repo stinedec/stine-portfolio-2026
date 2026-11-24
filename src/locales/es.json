@@ -44,6 +44,8 @@
     "backToWork": "Todo el trabajo",
     "date": "Fecha",
     "role": "Rol",
+    "company": "Empresa",
+    "client": "Cliente",
     "visit": "Ver proyecto",
     "gallery": "Galería",
     "related": "Proyectos relacionados",
@@ -54,8 +56,36 @@
     "downloadVideo": "Descárgalo en su lugar."
   },
   "about": {
-    "title": "Acerca de esta plantilla",
-    "intro": "Un punto de partida ligero con las decisiones de herramientas ya tomadas, para empezar nuevos proyectos con funcionalidades en lugar de configuración."
+    "title": "Acerca de mí",
+    "intro": [
+      "Soy ingeniera front-end sénior en Boulder, Colorado, con más de 10 años de experiencia creando experiencias web accesibles e interactivas.",
+      "Tengo una maestría en Emergent Digital Practices. Desde entonces he creado sitios de marketing, mapas interactivos, visualizaciones de datos y cuestionarios animados para clientes de agencias, componentes front-end y API para un producto SaaS en SparkFun Electronics y, más recientemente, simulaciones científicas interactivas para estudiantes.",
+      "Desarrollo conforme a WCAG 2.1 AA desde el principio, y dirigí una auditoría de accesibilidad de una biblioteca de 34 productos educativos interactivos, en la que hice prototipos de soluciones y entregué un plan de mejoras.",
+      "Hago mi mejor trabajo en estrecha colaboración con equipos de diseño y contenido, y aporto a cada proyecto pensamiento de diseño, un buen ojo visual y habilidad para resolver problemas."
+    ],
+    "highlightsHeading": "Trayectoria",
+    "projectsLabel": "Proyectos",
+    "highlights": {
+      "stem": {
+        "title": "Simulaciones STEM interactivas en ExploreLearning",
+        "text": "Simulaciones científicas interactivas para estudiantes, creadas con Vue 2 y TypeScript con d3.js, p5.js y Grapes.js: órbitas de satélites, un sistema de alerta sísmica, ondas sonoras y la protección del permafrost."
+      },
+      "sparkfun": {
+        "title": "SparkFun Electronics",
+        "text": "Componentes front-end y API para À La Carte, un producto SaaS con el que los clientes diseñaban placas de circuito personalizadas desde menús desplegables. Creado con Angular, Node.js y MongoDB."
+      },
+      "agency": {
+        "title": "Trabajo de agencia con LGND e IMM",
+        "text": "Sitios de marketing, mapas interactivos, visualizaciones de datos y cuestionarios animados para clientes como Toyota, Ending Pandemics, NRG, Greater Washington Partnership y Aireon. Para Tracfone, dirigí un equipo de 3 desarrolladores que creó 32 series de anuncios HTML5 animados en 6 semanas."
+      },
+      "education": {
+        "title": "Maestría en Emergent Digital Practices",
+        "text": "Mi proyecto de tesis fue el front-end de una plataforma de visualización de datos para Social Explorer, creado con Node.js y p5.js."
+      }
+    },
+    "toolsHeading": "Herramientas con las que he trabajado",
+    "toolsIntro": "Recopiladas de los proyectos de mi portafolio, de la más usada a la menos usada.",
+    "seeWork": "Ver mi trabajo"
   },
   "notFound": {
     "title": "Página no encontrada",

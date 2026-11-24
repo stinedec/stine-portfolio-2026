@@ -12,6 +12,7 @@ import {
   assetUrl,
   filterByTag,
   getAllTags,
+  getAllTechnologies,
   getRelatedItems,
   localizeItem,
   portfolioItems,
@@ -23,7 +24,16 @@ const publicDir = resolve(process.cwd(), 'public')
 const isRemote = (image: string) => /^(https?:)?\/\//.test(image)
 
 function item(slug: string, date: string): PortfolioItem {
-  return { slug, title: slug, date, image: `${slug}.jpg`, imageAlt: slug, summary: '' }
+  return {
+    slug,
+    title: slug,
+    date,
+    cardImage: `${slug}-card.jpg`,
+    cardImageAlt: slug,
+    headerImage: `${slug}.jpg`,
+    headerImageAlt: slug,
+    summary: '',
+  }
 }
 
 describe('getRecentItems', () => {
@@ -50,6 +60,18 @@ describe('getAllTags', () => {
 
   it('counts a tag listed twice on one item only once', () => {
     expect(getAllTags([{ tags: ['Vue', 'Vue'] }])).toEqual([{ tag: 'Vue', count: 1 }])
+  })
+})
+
+describe('getAllTechnologies', () => {
+  it('lists each technology once, most used first, then A to Z', () => {
+    const items = [
+      { technologies: ['Vue', 'd3.js'] },
+      { technologies: ['d3.js', 'PHP', 'PHP'] },
+      { technologies: ['Angular'] },
+      {},
+    ]
+    expect(getAllTechnologies(items)).toEqual(['d3.js', 'Angular', 'PHP', 'Vue'])
   })
 })
 
@@ -128,6 +150,8 @@ describe('localizeItem', () => {
     translations: {
       es: {
         title: 'Demostración',
+        cardImageAlt: 'Tarjeta',
+        headerImageAlt: 'Encabezado',
         technologies: ['HTML y CSS', 'Vue'],
         gallery: [{}, { alt: 'Segunda' }],
         videos: [{ title: 'Recorrido', captions: 'demo.es.vtt' }],
@@ -142,6 +166,10 @@ describe('localizeItem', () => {
     expect(es.role).toBe('Developer')
     expect(es.technologies).toEqual(['HTML y CSS', 'Vue'])
     expect(es.lang).toBe('es')
+    expect(es.cardImageAlt).toBe('Tarjeta')
+    expect(es.headerImageAlt).toBe('Encabezado')
+    expect(es.cardImage).toBe('demo-card.jpg')
+    expect(es.headerImage).toBe('demo.jpg')
     expect(es).not.toHaveProperty('translations')
   })
 
@@ -202,7 +230,8 @@ describe('portfolio.json', () => {
   it.each(portfolioItems)('$slug has a valid date and alt text', (entry) => {
     expect(entry.date).toMatch(/^\d{4}-\d{2}-\d{2}$/)
     expect(Number.isNaN(Date.parse(entry.date))).toBe(false)
-    expect(entry.imageAlt.trim()).not.toBe('')
+    expect(entry.cardImageAlt.trim()).not.toBe('')
+    expect(entry.headerImageAlt.trim()).not.toBe('')
   })
 
   it('has slugs that are safe to use in URLs', () => {
@@ -243,7 +272,8 @@ describe('portfolio.json', () => {
 
   const localFiles = portfolioItems
     .flatMap((entry) => [
-      entry.image,
+      entry.cardImage,
+      entry.headerImage,
       ...(entry.gallery ?? []).map((shot) => shot.image),
       ...(entry.videos ?? []).flatMap((video) => [video.src, video.poster, video.captions]),
       ...Object.values(entry.translations ?? {}).flatMap((tr) =>

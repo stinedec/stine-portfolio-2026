@@ -11,25 +11,27 @@ const item: LocalizedPortfolioItem = {
   slug: 'demo',
   title: 'Demo Project',
   date: '2026-03-01',
-  image: 'portfolio/demo.jpg',
-  imageAlt: 'Demo screenshot',
+  cardImage: 'portfolio/demo.jpg',
+  cardImageAlt: 'Demo screenshot',
+  headerImage: 'portfolio/demo-header.jpg',
+  headerImageAlt: 'Demo header',
   summary: 'A short summary.',
   url: 'https://example.com',
   tags: ['Vue'],
   lang: 'en',
 }
 
-function mountCard() {
+function mountCard(props: { headingLevel?: 2 | 3 } = {}) {
   const i18n = createI18n({ legacy: false, locale: 'en', messages: { en: {} } })
   const router = createRouter({
     history: createMemoryHistory(),
     routes: [{ path: '/work/:slug', name: 'portfolio-item', component: { template: '<div />' } }],
   })
-  return mount(PortfolioCard, { props: { item }, global: { plugins: [i18n, router] } })
+  return mount(PortfolioCard, { props: { item, ...props }, global: { plugins: [i18n, router] } })
 }
 
 describe('PortfolioCard', () => {
-  it('shows the image, title, date and tags', () => {
+  it('shows the card image (not the header image), title, date and tags', () => {
     const wrapper = mountCard()
     const img = wrapper.get('img')
     expect(img.attributes('src')).toBe('/portfolio/demo.jpg')
@@ -49,5 +51,16 @@ describe('PortfolioCard', () => {
     const wrapper = mountCard()
     expect(wrapper.get('h3').attributes('lang')).toBe('en')
     expect(wrapper.get('img').attributes('lang')).toBe('en')
+  })
+
+  it('marks the untranslated tags as English', () => {
+    expect(mountCard().get('.tag-list').attributes('lang')).toBe('en')
+  })
+
+  it('uses an h3 title by default and an h2 when asked', () => {
+    expect(mountCard().find('h3').exists()).toBe(true)
+    const wrapper = mountCard({ headingLevel: 2 })
+    expect(wrapper.find('h2').text()).toBe('Demo Project')
+    expect(wrapper.find('h3').exists()).toBe(false)
   })
 })

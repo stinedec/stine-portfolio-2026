@@ -2,13 +2,17 @@
 import PortfolioCard from '@/components/PortfolioCard.vue'
 import type { LocalizedPortfolioItem } from '@/data/portfolio'
 
-defineProps<{ items: LocalizedPortfolioItem[] }>()
+const { headingLevel = 3 } = defineProps<{
+  items: LocalizedPortfolioItem[]
+  /** Heading level for the card titles. Use 2 when the grid sits right under the page's h1. */
+  headingLevel?: 2 | 3
+}>()
 </script>
 
 <template>
   <ul class="portfolio-grid">
     <li v-for="item in items" :key="item.slug" class="portfolio-grid__item">
-      <PortfolioCard :item="item" class="portfolio-grid__card" />
+      <PortfolioCard :item="item" :heading-level="headingLevel" class="portfolio-grid__card" />
     </li>
   </ul>
 </template>

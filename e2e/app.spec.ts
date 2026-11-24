@@ -116,6 +116,20 @@ test('navigates to About and updates the document title', async ({ page }) => {
   await expect(page).toHaveTitle(/^About ·/)
 })
 
+test('the About page summarizes my career and links to projects', async ({ page }) => {
+  await page.goto('/about')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('About')
+
+  const highlights = page.getByRole('region', { name: 'Career highlights' })
+  await expect(highlights.getByRole('listitem').first()).toBeVisible()
+
+  // Project links under a highlight open that project.
+  const link = highlights.getByRole('link').first()
+  const title = (await link.innerText()).trim()
+  await link.click()
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(title)
+})
+
 test('unknown routes show the 404 page', async ({ page }) => {
   await page.goto('/does-not-exist')
   await expect(page.getByRole('heading', { name: 'Page not found' })).toBeVisible()
@@ -160,7 +174,7 @@ test('the work page filters projects by tag', async ({ page }) => {
   const tagButton = filters.getByRole('button').nth(1)
   const tag = (await tagButton.getAttribute('aria-label')) ?? (await tagButton.innerText())
   const tagName = tag.replace(/\s*\d+$/, '')
-  const count = Number(await tagButton.locator('span').innerText())
+  const count = Number(await tagButton.locator('.filter-chip__count').innerText())
 
   await tagButton.click()
   await expect(tagButton).toHaveAttribute('aria-pressed', 'true')

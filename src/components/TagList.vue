@@ -21,7 +21,7 @@ const { tags, size = 'small' } = defineProps<{
 
 .tag-list__tag {
   padding: 0.125rem 0.5rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--brand-600-o);
   border-radius: var(--radius-full);
 }
 

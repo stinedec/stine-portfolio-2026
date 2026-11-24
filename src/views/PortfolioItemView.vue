@@ -44,25 +44,35 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
       <h1 class="heading heading--page" :lang="item.lang">{{ item.title }}</h1>
       <p class="lead" :lang="item.lang">{{ item.summary }}</p>
 
-      <dl class="project__facts">
-        <div>
-          <dt class="project__fact-label">{{ t('portfolio.date') }}</dt>
-          <dd class="project__fact-value">
-            <time :datetime="item.date">{{ formatItemDate(item.date, locale) }}</time>
-          </dd>
-        </div>
-        <div v-if="item.role">
-          <dt class="project__fact-label">{{ t('portfolio.role') }}</dt>
-          <dd class="project__fact-value" :lang="item.lang">{{ item.role }}</dd>
-        </div>
-      </dl>
-
-      <TagList v-if="item.tags?.length" :tags="item.tags" size="large" />
+      <div class="project__info">
+        <dl class="project__facts">
+          <div>
+            <dt class="project__fact-label">{{ t('portfolio.date') }}</dt>
+            <dd class="project__fact-value">
+              <time :datetime="item.date">{{ formatItemDate(item.date, locale) }}</time>
+            </dd>
+          </div>
+          <div v-if="item.role">
+            <dt class="project__fact-label">{{ t('portfolio.role') }}</dt>
+            <dd class="project__fact-value" :lang="item.lang">{{ item.role }}</dd>
+          </div>
+          <div v-if="item.company">
+            <dt class="project__fact-label">{{ t('portfolio.company') }}</dt>
+            <dd class="project__fact-value" :lang="item.lang">{{ item.company }}</dd>
+          </div>
+          <div v-if="item.client">
+            <dt class="project__fact-label">{{ t('portfolio.client') }}</dt>
+            <dd class="project__fact-value" :lang="item.lang">{{ item.client }}</dd>
+          </div>
+        </dl>
+        <!-- Tags aren't translated, so mark them English for screen readers. -->
+        <TagList v-if="item.tags?.length" :tags="item.tags" size="large" lang="en" />
+      </div>
     </header>
 
     <img
-      :src="assetUrl(item.image)"
-      :alt="item.imageAlt"
+      :src="assetUrl(item.headerImage)"
+      :alt="item.headerImageAlt"
       :lang="item.lang"
       width="1200"
       height="900"
@@ -92,7 +102,7 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
     </div>
     <div v-if="item.technologies?.length" class="project__technologies">
       <h2 class="heading heading--section">{{ t('portfolio.technologies') }}</h2>
-      <ul>
+      <ul class="project__technologies-list" :lang="item.lang">
         <li v-for="tech in item.technologies" :key="tech">{{ tech }}</li>
       </ul>
     </div>
@@ -160,22 +170,37 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
 
 .project__header {
   max-width: 48rem;
+  width: fit-content;
 }
 
 .project__header > * + * {
   margin-top: 1rem;
 }
 
+.project__info {
+  background-color: var(--surface);
+  border-radius: 1em;
+  color: var(--accent-text);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
 .project__facts {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 2rem;
   font-size: var(--text-sm);
+  gap: 0.5rem 2rem;
   line-height: var(--text-sm-lh);
 }
 
 .project__fact-label {
-  color: var(--ink-muted);
+  color: var(--accent-text);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .project__fact-value {
@@ -187,9 +212,16 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  background-color: var(--surface-muted);
+}
+
+/* The header image keeps its own shape. Very tall images are capped so they don't fill several screens. */
+.project__hero {
+  width: auto;
+  max-width: 100%;
+  max-height: 80vh;
+  /* aspect-ratio: auto; */
+  height: auto;
 }
 
 .project__body {
@@ -204,13 +236,19 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
   line-height: 1.625;
 }
 
+.project__technologies-list {
+  list-style-type: disc;
+  padding: 0;
+  margin: 0 0 0 1rem;
+}
+
 .project__visit {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: var(--radius-md);
-  background-color: var(--brand-600);
+  background-color: var(--accent-bg);
   color: white;
   font-size: var(--text-sm);
   line-height: var(--text-sm-lh);
@@ -218,7 +256,7 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
 }
 
 .project__visit:hover {
-  background-color: var(--brand-700);
+  background-color: var(--accent-bg-hover);
 }
 
 .project__videos > * + * {

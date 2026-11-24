@@ -30,7 +30,7 @@ const { t } = useI18n()
   font-size: var(--text-sm);
   line-height: var(--text-sm-lh);
   font-weight: 600;
-  color: var(--brand-600);
+  color: var(--accent-text);
 }
 
 .not-found__title {
@@ -46,7 +46,7 @@ const { t } = useI18n()
 .not-found__link {
   display: inline-block;
   font-weight: 500;
-  color: var(--brand-600);
+  color: var(--accent-text);
   text-decoration: underline;
   text-underline-offset: 4px;
 }

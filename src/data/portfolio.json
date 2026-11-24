@@ -3,12 +3,17 @@
     "slug": "earthquake-response-simulation",
     "title": "Earthquake Response Simulation",
     "date": "2025-03-01",
-    "image": "portfolio/earthquake-sim.png",
-    "imageAlt": "Placeholder preview for Earthquake Response Simulation",
+    "cardImage": "portfolio/earthquake-sim.png",
+    "cardImageAlt": "Placeholder preview for Earthquake Response Simulation",
+    "headerImage": "portfolio/earthquake-sim.png",
+    "headerImageAlt": "Placeholder preview for Earthquake Response Simulation",
     "summary": "An animated simulation of the effectiveness of a student-designed earthquake response system",
     "role": "Sole front-end developer",
+    "company": "ExploreLearning",
     "description": [
-      "Built an interactive component using Vue 2 and Grapes.js to simulate the design and implementation of an earthquake warning system. Students could choose a layout of sensors for their alarm network, and test their effectiveness against several earthquakes with different epicenter locations. The sensors were able to respond according to which sensor intersected with the earthquake waves first, with response time and casualty numbers responding appropriately."
+      "Shake It Off is a STEM case that teaches tectonics by having students design an earthquake warning system. I built the culminating piece of interactivity: an animated simulation where students choose sensor types and locations, then test their network against earthquakes from different epicenters. Sensors trigger as the waves reach them, and students see how quickly their system responded and how many people it warned in time.",
+      "I inherited the project when a coworker left and became its sole developer, working with a content designer, an art director and a project manager. I finished the simulation in Vue 2 and TypeScript with d3.js and Grapes.js, tying it to the case's existing data so every student's design produced results that supported the lesson's learning goals.",
+      "The project was 6 months behind schedule when I took it over. I shipped it in 8 weeks."
     ],
     "technologies": [
       "HTML, CSS",
@@ -35,20 +40,26 @@
         "alt": "Placeholder gallery image 2"
       }
     ],
-    "url": "https://example.com",
-    "tags": ["STEM Case", "Interactive", "Animation"]
+    "url": "https://gizmos.explorelearning.com/find-gizmos/lesson-info?resourceId=3262",
+    "tags": ["STEM Case", "Interactive", "Motion Design"]
   },
   {
     "slug": "orbit-simulator",
     "title": "Orbit Simulator",
     "date": "2025-06-01",
-    "image": "portfolio/orbit-simulator.png",
-    "imageAlt": "Placeholder preview for Orbit Simulator",
+    "cardImage": "portfolio/orbit-simulator.png",
+    "cardImageAlt": "Placeholder preview for Orbit Simulator",
+    "headerImage": "portfolio/orbit-simulator.png",
+    "headerImageAlt": "Placeholder preview for Orbit Simulator",
     "summary": "An interactive simulation of orbital mechanics and satellite trajectories",
-    "tags": ["STEM Case", "Interactive", "Animation"],
+    "tags": ["STEM Case", "Interactive", "Motion Design"],
     "role": "Sole front-end developer",
+    "company": "ExploreLearning",
+    "client": "NASA",
     "description": [
-      "Built an interactive component using Vue 2 and d3.js to simulate how velocity and gravity impact the trajectory of a satellite in orbit. The widget visually responded to changes in velocity and gravity inputs with appropriate consequences: crashing to earth, arriving in stable orbit, or flying off into space relative to the size and direction of the input changes."
+      "Save a Satellite is a STEM case where students act as spacecraft navigation engineers. They launch a communication satellite into a stable orbit, then steer it out of the path of space debris using what they've learned about gravity and Newton's laws. I built the orbit simulation at the heart of the case.",
+      "Students adjust the satellite's velocity and the pull of gravity, and the simulation shows the result in real time: the satellite crashes back to Earth, settles into a stable orbit or flies off into space, depending on the size and direction of their changes. The main challenge was to depict the physics in a way that was simple enough for the grade level and visually congruant with the animations built by the art team, while also being true to the core scientific principles we were teaching.",
+      "As the sole developer, I built it in Vue 2 and TypeScript with p5.js and Grapes.js, working with a content designer, an art director, and animator, and a project manager."
     ],
     "technologies": ["Vue 2", "Grapes.js", "p5.js", "TypeScript"],
     "videos": [
@@ -57,19 +68,25 @@
         "src": "portfolio/Save-A-Satellite.mp4",
         "poster": "portfolio/orbit-simulator.png"
       }
-    ]
+    ],
+    "url": "https://gizmos.explorelearning.com/find-gizmos/lesson-info?interactiveCaseId=33"
   },
   {
     "slug": "protecting-permafrost",
     "title": "Protecting Permafrost",
     "date": "2024-06-01",
-    "image": "portfolio/permafrost.png",
-    "imageAlt": "Placeholder preview for Protecting Permafrost",
+    "cardImage": "portfolio/permafrost.png",
+    "cardImageAlt": "Placeholder preview for Protecting Permafrost",
+    "headerImage": "portfolio/permafrost.png",
+    "headerImageAlt": "Placeholder preview for Protecting Permafrost",
     "summary": "An interactive project focused on strategies to protect permafrost regions",
     "tags": ["STEM Case", "Interactive"],
     "role": "Sole front-end developer",
+    "company": "ExploreLearning",
     "description": [
-      "Built an interactive component using Vue 2 and Grapes.js to implement interactive gameplay. The component allowed users to drag and drop values onto SVG outlines and for their decisions to be graded against a rubric."
+      "In Protecting Permafrost: Heat Transfer Highway, students play civil engineers protecting a highway in an Arctic Alaskan town, where thawing permafrost threatens the ground it's built on. They design heat transfer solutions to keep the ground frozen in a warming climate. I built the interactive design activity where students test their ideas.",
+      "Students drag materials onto SVG diagrams of the sections of road, and the activity grades their design against a rubric, giving feedback on how well the students allocated their material budget. The biggest challenge was in managing the precision of interactivity necessary within a component that needed to work within our preexisting grapes.js interface. The component needed to be placeable on multiple pages and to work with varying amount of materials while delivering consistent results.",
+      "As the sole developer, I built it in Vue 2 and TypeScript with Grapes.js, working with a content and design team."
     ],
     "technologies": ["Vue 2", "Grapes.js", "TypeScript"],
     "videos": [
@@ -78,19 +95,25 @@
         "src": "portfolio/Permafrost.mp4",
         "poster": "portfolio/permafrost.png"
       }
-    ]
+    ],
+    "url": "https://gizmos.explorelearning.com/find-gizmos/lesson-info?resourceId=3272"
   },
   {
     "slug": "sound-wave-visualizer",
     "title": "Sound Wave Visualizer",
     "date": "2023-08-01",
-    "image": "portfolio/sound-wave.png",
-    "imageAlt": "Placeholder preview for Sound Wave Visualizer",
+    "cardImage": "portfolio/sound-wave.png",
+    "cardImageAlt": "Placeholder preview for Sound Wave Visualizer",
+    "headerImage": "portfolio/sound-wave.png",
+    "headerImageAlt": "Placeholder preview for Sound Wave Visualizer",
     "summary": "An interactive visualization of sound wave amplitude and frequency",
-    "tags": ["STEM Case", "Interactive", "Animation"],
+    "tags": ["STEM Case", "Interactive", "Motion Design"],
     "role": "Sole front-end developer",
+    "company": "ExploreLearning",
     "description": [
-      "Built an interactive component using Vue 2 and d3.js to visualize how changing the frequency and amplitude of a sound wave affects the resulting sound."
+      "Sound Off, Please! is a STEM case about noise pollution. Students act as acoustic engineers, working with an urban planner to understand how noise affects a community and to test ways to reduce it. I built the sound wave visualizer that helps students understand the relationship between frequency and amplitude in a sound wave.",
+      "Students change a sound wave's frequency and amplitude and see the wave redraw instantly, so they can connect what they see to the pitch and loudness of a tone that they could play by clicking a button.",
+      "As the sole developer, I built it in Vue 2 and TypeScript with d3.js and Grapes.js, working with a consulting developer and a design team."
     ],
     "technologies": ["Vue 2", "d3.js", "TypeScript", "Grapes.js"],
     "videos": [
@@ -99,17 +122,22 @@
         "src": "portfolio/Soundwave.mp4",
         "poster": "portfolio/sound-wave.png"
       }
-    ]
+    ],
+    "url": "https://gizmos.explorelearning.com/find-gizmos/lesson-info?interactiveCaseId=26"
   },
   {
     "slug": "nrg-advocacy",
     "title": "NRG Advocacy",
     "date": "2022-09-27",
-    "image": "portfolio/nrg-advocacy.png",
-    "imageAlt": "Placeholder preview for NRG Advocacy",
+    "cardImage": "portfolio/nrg-advocacy.png",
+    "cardImageAlt": "Placeholder preview for NRG Advocacy",
+    "headerImage": "portfolio/nrg-desktop-mobile.png",
+    "headerImageAlt": "Placeholder preview for NRG Advocacy",
     "summary": "An advocacy project focused on energy policy and community engagement",
     "tags": ["Front end"],
     "role": "Sole front-end developer",
+    "company": "LGND",
+    "client": "NRG",
     "description": [
       "Developed a mobile-responsive marketing website with LGND for their client NRG to promote their grassroots advocacy efforts."
     ],
@@ -119,11 +147,15 @@
     "slug": "ending-pandemics-map",
     "title": "Ending Pandemics Map",
     "date": "2022-07-23",
-    "image": "portfolio/ending-pandemics-map.png",
-    "imageAlt": "Placeholder preview for Ending Pandemics Map",
+    "cardImage": "portfolio/ending-pandemics-map.png",
+    "cardImageAlt": "Placeholder preview for Ending Pandemics Map",
+    "headerImage": "portfolio/ending-pandemics-desktop-mobile.png",
+    "headerImageAlt": "Placeholder preview for Ending Pandemics Map",
     "summary": "An interactive map visualizing efforts to end pandemics",
     "tags": ["Front end", "Interactive"],
     "role": "Sole front-end developer",
+    "company": "LGND",
+    "client": "Ending Pandemics",
     "description": [
       "Developed an interactive map of data about global pandemic prevention programs with LGND for their client Ending Pandemics."
     ],
@@ -133,11 +165,15 @@
     "slug": "toyota-quizzes",
     "title": "Toyota Quizzes",
     "date": "2022-06-07",
-    "image": "portfolio/toyota-quizzes.png",
-    "imageAlt": "Placeholder preview for Toyota Quizzes",
+    "cardImage": "portfolio/toyota-quizzes.png",
+    "cardImageAlt": "Placeholder preview for Toyota Quizzes",
+    "headerImage": "portfolio/toyota-biden-desktop-mobile.png",
+    "headerImageAlt": "Placeholder preview for Toyota Quizzes",
     "summary": "An interactive quiz about political literacy developed for Toyota",
     "tags": ["Front end", "Interactive"],
     "role": "Sole front-end developer",
+    "company": "LGND",
+    "client": "Toyota",
     "description": [
       "Developed a series of three animated interactive quizzes about political literacy and engagement with LGND for their client Toyota."
     ],
@@ -147,13 +183,16 @@
     "slug": "sparkfun-alc",
     "title": "SparkFun ALC",
     "date": "2020-11-27",
-    "image": "portfolio/sparkfun-alc.png",
-    "imageAlt": "Placeholder preview for SparkFun ALC",
+    "cardImage": "portfolio/sparkfun-alc.png",
+    "cardImageAlt": "Placeholder preview for SparkFun ALC",
+    "headerImage": "portfolio/sparkfun-alc-desktop-mobile.png",
+    "headerImageAlt": "Placeholder preview for SparkFun ALC",
     "summary": "An application built for SparkFun's À La Carte circuit board design system",
     "tags": ["Front end"],
-    "role": "Sole front-end developer",
+    "role": "Full-stack developer",
+    "company": "SparkFun Electronics",
     "description": [
-      "Developed front end components and built APIs for SparkFun's À La Carte application while working at SparkFun Electronics. This SaaS product allowed customers to build custom electronic boards and components using drop down menus."
+      "Developed front-end components and built APIs for SparkFun's À La Carte application while working at SparkFun Electronics. This SaaS product allowed customers to build custom electronic boards and components using drop down menus."
     ],
     "technologies": [
       "Angular4 v.11",
@@ -168,13 +207,27 @@
     "slug": "gwp-regional-mobility",
     "title": "GWP Regional Mobility",
     "date": "2019-02-27",
-    "image": "portfolio/gwp-regional-mobility.png",
-    "imageAlt": "Placeholder preview for GWP Regional Mobility",
+    "cardImage": "portfolio/gwp-regional-mobility.png",
+    "cardImageAlt": "Cropped screenshot of GWP Regional Mobility",
+    "headerImage": "portfolio/GWP-desktop-mobile.png",
+    "headerImageAlt": "Cropped screenshot of GWP Regional Mobility",
     "summary": "A project focused on regional mobility solutions developed with LGND",
     "tags": ["Front end"],
     "role": "Sole front-end developer",
+    "company": "LGND",
+    "client": "Greater Washington Partnership",
     "description": [
       "Developed an 8-page website with LGND for their client Greater Washington Partnership to help explain and visualize their 7 solution plan for improved mobility in the greater Washington D.C. area, incorporating interactive maps and data visualizations."
+    ],
+    "gallery": [
+      {
+        "image": "portfolio/GWP-desktop-mobile.png",
+        "alt": "Placeholder gallery image 1"
+      },
+      {
+        "image": "portfolio/sample-project-08.svg",
+        "alt": "Placeholder gallery image 2"
+      }
     ],
     "technologies": ["HTML, Sass", "jQuery", "Git (Version Control)"]
   },
@@ -182,11 +235,15 @@
     "slug": "aireon-style-guide",
     "title": "Aireon Style Guide",
     "date": "2018-05-18",
-    "image": "portfolio/aireon-style-guide.png",
-    "imageAlt": "Placeholder preview for Aireon Style Guide",
+    "cardImage": "portfolio/aireon-style-guide.png",
+    "cardImageAlt": "Placeholder preview for Aireon Style Guide",
+    "headerImage": "portfolio/aireon-style-guide.png",
+    "headerImageAlt": "Placeholder preview for Aireon Style Guide",
     "summary": "Visual style guide for internal use at Aireon",
     "tags": ["Front end"],
     "role": "Sole front-end developer",
+    "company": "LGND",
+    "client": "Aireon",
     "description": [
       "Built the responsive front-end markup for a visual style guide with LGND for their client Aireon."
     ],
@@ -196,11 +253,15 @@
     "slug": "net10-leasing",
     "title": "Net10 Leasing",
     "date": "2016-08-12",
-    "image": "portfolio/net10-leasing.png",
-    "imageAlt": "Placeholder preview for Net10 Leasing",
+    "cardImage": "portfolio/net10-leasing.png",
+    "cardImageAlt": "Placeholder preview for Net10 Leasing",
+    "headerImage": "portfolio/net10-leasing.png",
+    "headerImageAlt": "Placeholder preview for Net10 Leasing",
     "summary": "Marketing website for Net10 Wireless",
     "tags": ["Front end"],
     "role": "Sole front-end developer",
+    "company": "IMM",
+    "client": "Net10 Wireless",
     "description": [
       "Built the responsive front-end markup for the marketing website with IMM for their client Net10 Wireless."
     ],
@@ -210,11 +271,15 @@
     "slug": "straight-talk-leasing",
     "title": "Straight Talk Leasing",
     "date": "2016-08-11",
-    "image": "portfolio/straight-talk-leasing.png",
-    "imageAlt": "Placeholder preview for Straight Talk Leasing",
+    "cardImage": "portfolio/straight-talk-leasing.png",
+    "cardImageAlt": "Placeholder preview for Straight Talk Leasing",
+    "headerImage": "portfolio/straight-talk-leasing.png",
+    "headerImageAlt": "Placeholder preview for Straight Talk Leasing",
     "summary": "Marketing website for Straight Talk Wireless",
     "tags": ["Front end"],
     "role": "Sole front-end developer",
+    "company": "IMM",
+    "client": "Straight Talk Wireless",
     "description": [
       "Built the responsive front-end markup for the marketing website with IMM for their client Straight Talk Wireless."
     ],
@@ -224,11 +289,15 @@
     "slug": "tracfone-html5-banners",
     "title": "Tracfone HTML5 Banners",
     "date": "2016-08-10",
-    "image": "portfolio/tracfone-banners.png",
-    "imageAlt": "Placeholder preview for Tracfone HTML5 Banners",
+    "cardImage": "portfolio/tracfone-banners.png",
+    "cardImageAlt": "Placeholder preview for Tracfone HTML5 Banners",
+    "headerImage": "portfolio/tracfone-banners.png",
+    "headerImageAlt": "Placeholder preview for Tracfone HTML5 Banners",
     "summary": "HTML5 banner ads for Tracfone",
-    "tags": ["Front end", "Animation"],
-    "role": "Sole front-end developer",
+    "tags": ["Front end", "Motion Design"],
+    "role": "Lead front-end developer",
+    "company": "IMM",
+    "client": "Tracfone",
     "description": [
       "Managed a team of 3 developers to build 32 suites of animated HTML5 banner ads over a 6-week period of time."
     ],
@@ -238,13 +307,15 @@
     "slug": "social-explorer",
     "title": "Social Explorer",
     "date": "2016-05-27",
-    "image": "portfolio/social-explorer.png",
-    "imageAlt": "Placeholder preview for Social Explorer",
+    "cardImage": "portfolio/social-explorer.png",
+    "cardImageAlt": "Placeholder preview for Social Explorer",
+    "headerImage": "portfolio/social-explorer.png",
+    "headerImageAlt": "Placeholder preview for Social Explorer",
     "summary": "Thesis project for my Master's degree in Emergent Digital Practices",
-    "tags": ["Front end", "Animation", "Interactive"],
+    "tags": ["Front end", "Motion Design", "Interactive"],
     "role": "Sole front-end developer",
     "description": [
-      "Built the responsive front end markup for the data visualization platform with LGND for their client Social Explorer."
+      "Conceptualized and built an interactive app for exploring meaning behind social interaction for my master's thesis project in Emergent Digital Practices at the University of Denver."
     ],
     "technologies": ["Node.js", "p5.js", "HTML, CSS", "Git (Version Control)"]
   }

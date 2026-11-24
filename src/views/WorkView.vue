@@ -64,7 +64,7 @@ function selectTag(tag: string | undefined) {
           :class="['filter-chip', { 'filter-chip--active': activeTag === tag }]"
           @click="selectTag(activeTag === tag ? undefined : tag)"
         >
-          {{ tag }}
+          <span lang="en">{{ tag }}</span>
           <span class="filter-chip__count" aria-hidden="true">{{ count }}</span>
         </button>
       </div>
@@ -79,7 +79,8 @@ function selectTag(tag: string | undefined) {
       </p>
     </header>
 
-    <PortfolioGrid :items="items" />
+    <!-- The cards sit right under the h1, so their titles are h2s. -->
+    <PortfolioGrid :items="items" :heading-level="2" />
   </section>
 </template>
 
@@ -121,8 +122,8 @@ function selectTag(tag: string | undefined) {
 
 .filter-chip--active,
 .filter-chip--active:hover {
-  border-color: var(--brand-600);
-  background-color: var(--brand-600);
+  border-color: var(--accent-bg);
+  background-color: var(--accent-bg);
   color: white;
 }
 

@@ -58,11 +58,7 @@ const recentItems = computed(() =>
   font-size: var(--text-xl);
   line-height: var(--text-xl-lh);
   font-weight: 500;
-  color: var(--brand-700);
-}
-
-.dark .home__role {
-  color: var(--brand-500);
+  color: var(--accent-text);
 }
 
 .home__recent > * + * {

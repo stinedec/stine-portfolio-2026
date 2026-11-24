@@ -7,10 +7,14 @@ export interface PortfolioItem {
   title: string
   /** Completion or publish date as YYYY-MM-DD. Used for sorting. */
   date: string
-  /** Preview image path inside `public/`, e.g. "portfolio/my-project.jpg". */
-  image: string
-  /** Describes the image for screen readers. */
-  imageAlt: string
+  /** Image on the project's card, a path inside `public/`, e.g. "portfolio/my-project-card.jpg". Shown at 4:3. */
+  cardImage: string
+  /** Describes the card image for screen readers. */
+  cardImageAlt: string
+  /** Image at the top of the project's page, a path inside `public/`, e.g. "portfolio/my-project.jpg". */
+  headerImage: string
+  /** Describes the header image for screen readers. */
+  headerImageAlt: string
   /** Short text for the homepage card. Also the intro on the item's page. */
   summary: string
   /** Optional longer write-up for the item's page, one string per paragraph. */
@@ -19,6 +23,10 @@ export interface PortfolioItem {
   technologies?: string[]
   /** Optional: your role on the project, e.g. "Sole front-end developer". */
   role?: string
+  /** Optional company associated with the project. */
+  company?: string
+  /** Optional client associated with the project. */
+  client?: string
   /** Optional extra images for the item's page. */
   gallery?: { image: string; alt: string }[]
   /** Optional videos for the item's page. */
@@ -40,7 +48,8 @@ export interface PortfolioItem {
  */
 export interface PortfolioItemTranslation {
   title?: string
-  imageAlt?: string
+  cardImageAlt?: string
+  headerImageAlt?: string
   summary?: string
   description?: string[]
   technologies?: string[]
@@ -114,7 +123,8 @@ export function localizeItem(item: PortfolioItem, locale: string): LocalizedPort
   return {
     ...base,
     title: tr.title ?? base.title,
-    imageAlt: tr.imageAlt ?? base.imageAlt,
+    cardImageAlt: tr.cardImageAlt ?? base.cardImageAlt,
+    headerImageAlt: tr.headerImageAlt ?? base.headerImageAlt,
     summary: tr.summary ?? base.summary,
     description: tr.description ?? base.description,
     technologies: tr.technologies ?? base.technologies,
@@ -159,6 +169,17 @@ export function getAllTags(items: { tags?: string[] }[]): { tag: string; count: 
   return [...counts]
     .map(([tag, count]) => ({ tag, count }))
     .sort((a, b) => a.tag.localeCompare(b.tag))
+}
+
+/** Every technology used across these items, most used first, then A to Z. */
+export function getAllTechnologies(items: { technologies?: string[] }[]): string[] {
+  const counts = new Map<string, number>()
+  for (const item of items) {
+    for (const tech of new Set(item.technologies)) counts.set(tech, (counts.get(tech) ?? 0) + 1)
+  }
+  return [...counts]
+    .sort(([a, countA], [b, countB]) => countB - countA || a.localeCompare(b))
+    .map(([tech]) => tech)
 }
 
 /**

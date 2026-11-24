@@ -14,6 +14,15 @@ declare module 'vue-router' {
   }
 }
 
+/**
+ * Old project slugs and the slug that replaced them, so links to a renamed or
+ * merged project still work. Add an entry whenever you change or remove a slug.
+ */
+const movedProjects: Record<string, string> = {
+  'net10-leasing': 'net10-straight-talk-leasing',
+  'straight-talk-leasing': 'net10-straight-talk-leasing',
+}
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -36,6 +45,10 @@ const router = createRouter({
       component: () => import('@/views/WorkView.vue'),
       meta: { titleKey: 'nav.work' },
     },
+    ...Object.entries(movedProjects).map(([from, to]) => ({
+      path: `/work/${from}`,
+      redirect: { name: 'portfolio-item', params: { slug: to } },
+    })),
     {
       path: '/work/:slug',
       name: 'portfolio-item',

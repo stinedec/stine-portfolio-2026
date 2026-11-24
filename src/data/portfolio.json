@@ -139,7 +139,8 @@
     "company": "LGND",
     "client": "NRG",
     "description": [
-      "Developed a mobile-responsive marketing website with LGND for their client NRG to promote their grassroots advocacy efforts."
+      "NRG needed a website to promote its grassroots advocacy work on energy policy topics. I built the site's front end from the designer's mockups in a Sketch file, making it fully responsive, with a PHP back end.",
+      "I was the sole front-end developer, working with LGND's designer and project manager."
     ],
     "technologies": ["PHP", "HTML, CSS", "Git (Version Control)"]
   },
@@ -157,7 +158,9 @@
     "company": "LGND",
     "client": "Ending Pandemics",
     "description": [
-      "Developed an interactive map of data about global pandemic prevention programs with LGND for their client Ending Pandemics."
+      "Ending Pandemics, a nonprofit working on disease surveillance and outbreak prevention, wanted to spread awareness of pandemics throughout history and what measures were taken to mitigate the spread of disease. With the agency LGND, I built an interactive map of that data.",
+      "The map is built with d3.js and jQuery. Visitors can pan and zoom on a global map to see locations of previous outbreaks, filter data to view specific program types, and click a program to see more details. Special care was taken to make sure the interactivity translated to mobile devices.",
+      "I was the sole front-end developer, working with LGND's designer and project manager."
     ],
     "technologies": ["jQuery", "d3.js", "HTML, CSS", "Git (Version Control)"]
   },
@@ -169,15 +172,17 @@
     "cardImageAlt": "Placeholder preview for Toyota Quizzes",
     "headerImage": "portfolio/toyota-biden-desktop-mobile.png",
     "headerImageAlt": "Placeholder preview for Toyota Quizzes",
-    "summary": "An interactive quiz about political literacy developed for Toyota",
+    "summary": "Two animated quizzes about political literacy for Toyota",
     "tags": ["Front end", "Interactive"],
     "role": "Sole front-end developer",
     "company": "LGND",
     "client": "Toyota",
     "description": [
-      "Developed a series of three animated interactive quizzes about political literacy and engagement with LGND for their client Toyota."
+      "With the agency LGND, I built a series of two animated quizzes for Toyota about political literacy, launched around the 2022 midterm elections to encourage civic engagement.",
+      "Each quiz uses GreenSock animations to load questions and spin answers around in the fashion of a find-the-match style game, built with EJS templates, Sass, jQuery and a PHP back end. One quiz questioned visitors on members of Biden's administration, and another focused on notable Hispanic politicians for Hispanic Heritage Month. The process involved developing a central template that was then extended out for each separate quiz.",
+      "I was the sole front-end developer, working with LGND's designer and project manager."
     ],
-    "technologies": ["EJS, Sass", "PHP", "Greensock", "jQuery", "Git (Version Control)"]
+    "technologies": ["EJS, Sass", "PHP", "GreenSock", "jQuery", "Git (Version Control)"]
   },
   {
     "slug": "sparkfun-alc",
@@ -192,10 +197,12 @@
     "role": "Full-stack developer",
     "company": "SparkFun Electronics",
     "description": [
-      "Developed front-end components and built APIs for SparkFun's À La Carte application while working at SparkFun Electronics. This SaaS product allowed customers to build custom electronic boards and components using drop down menus."
+      "À La Carte was a SaaS product from SparkFun Electronics that let customers first design custom circuit boards by dragging and dropping components from menus, then order their finished board. I worked on it as a full-stack developer at SparkFun.",
+      "I built front-end components in Angular and the APIs behind them in Node.js and MongoDB, for functions such as updating the board and checking against design constraints.",
+      "I worked within a team of 8 software engineers."
     ],
     "technologies": [
-      "Angular4 v.11",
+      "Angular 4",
       "Node.js",
       "MongoDB",
       "HTML, CSS",
@@ -217,7 +224,9 @@
     "company": "LGND",
     "client": "Greater Washington Partnership",
     "description": [
-      "Developed an 8-page website with LGND for their client Greater Washington Partnership to help explain and visualize their 7 solution plan for improved mobility in the greater Washington D.C. area, incorporating interactive maps and data visualizations."
+      "Greater Washington Partnership, a group of business leaders in the Baltimore–Washington–Richmond region, published a 7-solution plan to improve how people get around the greater Washington, D.C. area. With the agency LGND, I built an 8-page website that explains the plan.",
+      "The site combines the plan's text with supporting video and map elements, built with HTML, Sass and jQuery and fully responsive. It was an exciting challenge to build a UI that was expressly designed to support the information it was conveying, making a complicated plan easier to digest in parts.",
+      "I was the sole front-end developer, working with LGND's designer and project manager."
     ],
     "gallery": [
       {
@@ -245,43 +254,35 @@
     "company": "LGND",
     "client": "Aireon",
     "description": [
-      "Built the responsive front-end markup for a visual style guide with LGND for their client Aireon."
+      "Aireon needed a visual style guide so its internal teams could use the brand consistently. With the agency LGND, I built it as a responsive website.",
+      "I turned LGND's designs into responsive HTML and Sass, documenting colors, typography, and components with copyable code snippets and applicable CSS classes.",
+      "I was the sole front-end developer, working with LGND's designer."
     ],
     "technologies": ["HTML", "Sass"]
   },
   {
-    "slug": "net10-leasing",
-    "title": "Net10 Leasing",
+    "slug": "net10-straight-talk-leasing",
+    "title": "Net10 and Straight Talk Leasing",
     "date": "2016-08-12",
     "cardImage": "portfolio/net10-leasing.png",
     "cardImageAlt": "Placeholder preview for Net10 Leasing",
-    "headerImage": "portfolio/net10-leasing.png",
+    "headerImage": "portfolio/net10-st-desktop.png",
     "headerImageAlt": "Placeholder preview for Net10 Leasing",
-    "summary": "Marketing website for Net10 Wireless",
+    "summary": "Marketing websites for Net10 Wireless and Straight Talk Wireless",
     "tags": ["Front end"],
     "role": "Sole front-end developer",
     "company": "IMM",
-    "client": "Net10 Wireless",
+    "client": "Net10 Wireless and Straight Talk Wireless",
     "description": [
-      "Built the responsive front-end markup for the marketing website with IMM for their client Net10 Wireless."
+      "Net10 Wireless and Straight Talk Wireless, two prepaid phone brands, each launched a phone leasing program and needed a marketing site to explain it. With the agency IMM, I built the front end of both sites.",
+      "I turned the designs into responsive HTML, CSS and jQuery. Both sites shared similar features, so the project was built as a common base with CSS themes that were easy to switch between.",
+      "I was the sole front-end developer, working with IMM's designer and project manager."
     ],
-    "technologies": ["HTML, CSS", "jQuery", "Git (Version Control)"]
-  },
-  {
-    "slug": "straight-talk-leasing",
-    "title": "Straight Talk Leasing",
-    "date": "2016-08-11",
-    "cardImage": "portfolio/straight-talk-leasing.png",
-    "cardImageAlt": "Placeholder preview for Straight Talk Leasing",
-    "headerImage": "portfolio/straight-talk-leasing.png",
-    "headerImageAlt": "Placeholder preview for Straight Talk Leasing",
-    "summary": "Marketing website for Straight Talk Wireless",
-    "tags": ["Front end"],
-    "role": "Sole front-end developer",
-    "company": "IMM",
-    "client": "Straight Talk Wireless",
-    "description": [
-      "Built the responsive front-end markup for the marketing website with IMM for their client Straight Talk Wireless."
+    "gallery": [
+      {
+        "image": "portfolio/straight-talk-leasing.png",
+        "alt": "Placeholder preview for Straight Talk Leasing"
+      }
     ],
     "technologies": ["HTML, CSS", "jQuery", "Git (Version Control)"]
   },
@@ -299,9 +300,11 @@
     "company": "IMM",
     "client": "Tracfone",
     "description": [
-      "Managed a team of 3 developers to build 32 suites of animated HTML5 banner ads over a 6-week period of time."
+      "Tracfone needed 32 suites of animated HTML5 banner ads to promote the low prices on various phone models they offered, each suite in 5 standard ad sizes. With the agency IMM, I led the team that built them.",
+      "I built out many of the banners myself and led a team of 3 developers to complete all the suites, setting up shared GreenSock animation patterns and minifying all image assets so every banner stayed consistent and quick to load.",
+      "We delivered all 32 suites in 6 weeks."
     ],
-    "technologies": ["HTML, CSS", "Greensock", "Git (Version Control)"]
+    "technologies": ["HTML, CSS", "GreenSock", "Git (Version Control)"]
   },
   {
     "slug": "social-explorer",

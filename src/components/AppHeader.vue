@@ -11,7 +11,6 @@ const { isDark, toggle } = useDarkMode()
 const appTitle = import.meta.env.VITE_APP_TITLE || 'stinedec'
 
 const links = [
-  { to: { name: 'home' }, label: 'nav.home' },
   { to: { name: 'work' }, label: 'nav.work' },
   { to: { name: 'about' }, label: 'nav.about' },
 ] as const

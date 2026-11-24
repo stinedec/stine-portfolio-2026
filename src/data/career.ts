@@ -32,8 +32,7 @@ export const careerHighlights: CareerHighlight[] = [
       'gwp-regional-mobility',
       'aireon-style-guide',
       'tracfone-html5-banners',
-      'straight-talk-leasing',
-      'net10-leasing',
+      'net10-straight-talk-leasing',
     ],
   },
   // The project date is the thesis, not necessarily the graduation year, so no years here.

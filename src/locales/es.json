@@ -72,7 +72,7 @@
       },
       "sparkfun": {
         "title": "SparkFun Electronics",
-        "text": "Componentes front-end y API para À La Carte, un producto SaaS con el que los clientes diseñaban placas de circuito personalizadas desde menús desplegables. Creado con Angular, Node.js y MongoDB."
+        "text": "Componentes front-end y API para À La Carte, un producto SaaS con el que los clientes diseñaban placas de circuito personalizadas arrastrando y soltando componentes. Creado con Angular, Node.js y MongoDB."
       },
       "agency": {
         "title": "Trabajo de agencia con LGND e IMM",

@@ -220,3 +220,13 @@ test('project pages link to related projects that share a tag', async ({ page })
   await cards.first().getByRole('link').click()
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(title)
 })
+
+test('old project addresses redirect to the project that replaced them', async ({ page }) => {
+  for (const oldSlug of ['net10-leasing', 'straight-talk-leasing']) {
+    await page.goto(`/work/${oldSlug}`)
+    await expect(page).toHaveURL(/\/work\/net10-straight-talk-leasing$/)
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+      'Net10 and Straight Talk Leasing',
+    )
+  }
+})

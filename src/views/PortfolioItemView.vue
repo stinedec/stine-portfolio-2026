@@ -220,7 +220,7 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
   width: auto;
   max-width: 100%;
   max-height: 80vh;
-  /* aspect-ratio: auto; */
+  aspect-ratio: auto;
   height: auto;
 }
 

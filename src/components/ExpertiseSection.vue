@@ -39,21 +39,23 @@ const areas = [
     </h2>
     <ul class="expertise__list">
       <li v-for="area in areas" :key="area.key" class="expertise__item">
-        <span class="expertise__icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="expertise__icon-svg"
-            aria-hidden="true"
-          >
-            <path v-for="d in area.icon" :key="d" :d="d" />
-          </svg>
-        </span>
-        <h3 class="expertise__title">{{ t(`home.expertise.${area.key}.title`) }}</h3>
+        <div class="expertise__item-header">
+          <span class="expertise__icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="expertise__icon-svg"
+              aria-hidden="true"
+            >
+              <path v-for="d in area.icon" :key="d" :d="d" />
+            </svg>
+          </span>
+          <h3 class="expertise__title">{{ t(`home.expertise.${area.key}.title`) }}</h3>
+        </div>
         <p class="expertise__text">{{ t(`home.expertise.${area.key}.text`) }}</p>
       </li>
     </ul>
@@ -81,6 +83,12 @@ const areas = [
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   background-color: var(--surface-muted);
+}
+
+.expertise__item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .expertise__item > * + * {

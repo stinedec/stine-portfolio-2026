@@ -36,7 +36,7 @@
   /* --surface: oklch(0.99 0 0); */
   --surface: oklch(0.9 0.04 220.77);
   --surface-muted: oklch(89.673% 0.03606 221.343);
-  --ink: oklch(0.22 0.02 250);
+  --ink: oklch(18.79% 0.06224 297.33);
   --ink-muted: oklch(0.38 0.02 250);
   --line: oklch(0.9 0.01 250);
   /*
@@ -44,7 +44,7 @@
    * A darker orange than --brand-600 so it passes WCAG AA (4.5:1) on every background,
    * including each background stripe.
    */
-  --accent-text: oklch(0.4 0.15 36);
+  --accent-text: oklch(0.56 0.18 37.13);
   /* Fill for buttons and selected chips with white text (6.5:1). */
   --accent-bg: oklch(0.5 0.17 36);
   --accent-bg-hover: oklch(0.44 0.16 36);
@@ -101,7 +101,7 @@
   --gradient-4: oklch(23.211% 0.09799 295.683);
   /* Darkened from 49.111% so light text stays readable on this stripe. */
   --gradient-5: oklch(38% 0.11769 57.167);
-  --ink: oklch(0.95 0.01 250);
+  --ink: oklch(0.89 0.03 280.76);
   --ink-muted: oklch(0.78 0.02 250);
   --line: oklch(0.32 0.01 250);
   --accent-text: oklch(0.8 0.15 69);

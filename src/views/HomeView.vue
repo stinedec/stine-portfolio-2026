@@ -24,6 +24,8 @@ const recentItems = computed(() =>
       <p class="lead">{{ t('home.blurb') }}</p>
     </section>
 
+    <ExpertiseSection />
+
     <section aria-labelledby="recent-work-heading" class="home__recent">
       <h2 id="recent-work-heading" class="heading heading--section">
         {{ t('home.recentWork') }}
@@ -35,8 +37,6 @@ const recentItems = computed(() =>
         </RouterLink>
       </div>
     </section>
-
-    <ExpertiseSection />
   </div>
 </template>
 

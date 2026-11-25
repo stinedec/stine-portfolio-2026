@@ -178,9 +178,9 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
 }
 
 .project__info {
-  background-color: var(--surface);
+  background-color: var(--info-bg);
   border-radius: 1em;
-  color: var(--accent-text);
+  color: var(--accent-text-large);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -191,20 +191,20 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
 .project__facts {
   display: flex;
   flex-wrap: wrap;
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
+  font-weight: 700;
   gap: 0.5rem 2rem;
-  line-height: var(--text-sm-lh);
+  line-height: var(--text-lg-lh);
 }
 
 .project__fact-label {
-  color: var(--accent-text);
-  font-weight: 500;
+  color: var(--accent-text-large);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .project__fact-value {
-  font-weight: 500;
+  color: var(--ink);
 }
 
 .project__hero,

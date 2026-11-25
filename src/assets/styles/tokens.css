@@ -25,10 +25,10 @@
   --brand-600-o: oklch(64.044% 0.18567 36.072 / 0.5);
   --brand-700-o: oklch(55.623% 0.18485 35.032 / 0.5);
 
-  --gradient-1: oklch(82.866% 0.07248 217.541);
+  /* Gradients 1 and 3 are light enough for --accent-text-large (3:1 or more). */
+  --gradient-1: oklch(83.1% 0.07248 217.541);
   --gradient-2: oklch(85.565% 0.05979 177.479);
-  /* Lightened from 74.294% so muted and orange text stay readable on this stripe. */
-  --gradient-3: oklch(78% 0.06609 248.065);
+  --gradient-3: oklch(83.5% 0.06609 248.065);
   --gradient-4: oklch(84.551% 0.05494 304.288);
   --gradient-5: oklch(92.893% 0.05604 79.244);
 
@@ -40,11 +40,18 @@
   --ink-muted: oklch(0.38 0.02 250);
   --line: oklch(0.9 0.01 250);
   /*
-   * Brand-colored text: active nav link, hovered card title, project facts, 404 link.
-   * A darker orange than --brand-600 so it passes WCAG AA (4.5:1) on every background,
-   * including each background stripe.
+   * Brand-colored text: active nav link, home role, hovered card title, 404 link.
+   * Dark enough to pass WCAG AA (4.5:1) on every background, including each stripe.
    */
-  --accent-text: oklch(0.56 0.18 37.13);
+  --accent-text: oklch(0.415 0.126 42);
+  /*
+   * A brighter orange: 4.5:1 on --info-bg (any size), and 3:1 or more on --surface and
+   * every stripe, which is enough for large text there (24px, or about 19px bold).
+   * Use --accent-text for smaller text on the stripes.
+   */
+  --accent-text-large: oklch(0.535 0.178 37.13);
+  /* The project info box: a touch lighter than --surface so its orange labels pass. */
+  --info-bg: oklch(0.925 0.04 220.77);
   /* Fill for buttons and selected chips with white text (6.5:1). */
   --accent-bg: oklch(0.5 0.17 36);
   --accent-bg-hover: oklch(0.44 0.16 36);
@@ -105,6 +112,8 @@
   --ink-muted: oklch(0.78 0.02 250);
   --line: oklch(0.32 0.01 250);
   --accent-text: oklch(0.8 0.15 69);
+  --accent-text-large: oklch(0.8 0.15 69);
+  --info-bg: var(--surface);
   --badge-bg: color-mix(in oklab, var(--brand-700) 25%, transparent);
   --badge-ink: var(--brand-500);
 

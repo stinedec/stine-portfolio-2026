@@ -178,7 +178,7 @@ const isExternal = computed(() => !!item.value?.url && /^https?:\/\//.test(item.
 }
 
 .project__info {
-  background-color: var(--info-bg);
+  background-color: var(--surface);
   border-radius: 1em;
   color: var(--accent-text-large);
   display: flex;

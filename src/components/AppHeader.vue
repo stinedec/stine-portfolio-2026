@@ -87,7 +87,7 @@ const links = [
 
 .site-header__nav-link[aria-current='page'] {
   font-weight: 500;
-  color: var(--accent-text);
+  color: var(--accent-text-nav);
 }
 
 .site-header__actions {

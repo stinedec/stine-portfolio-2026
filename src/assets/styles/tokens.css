@@ -34,7 +34,7 @@
 
   /* Theme colors: these flip in dark mode (see .dark below). */
   /* --surface: oklch(0.99 0 0); */
-  --surface: oklch(0.9 0.04 220.77);
+  --surface: oklch(0.925 0.04 220.77);
   --surface-muted: oklch(89.673% 0.03606 221.343);
   --ink: oklch(18.79% 0.06224 297.33);
   --ink-muted: oklch(0.38 0.02 250);
@@ -45,13 +45,13 @@
    */
   --accent-text: oklch(0.415 0.126 42);
   /*
-   * A brighter orange: 4.5:1 on --info-bg (any size), and 3:1 or more on --surface and
-   * every stripe, which is enough for large text there (24px, or about 19px bold).
+   * A brighter orange: 4.5:1 on --surface (any size), and 3:1 or more on every stripe,
+   * which is enough for large text there (24px, or about 19px bold).
    * Use --accent-text for smaller text on the stripes.
    */
   --accent-text-large: oklch(0.535 0.178 37.13);
-  /* The project info box: a touch lighter than --surface so its orange labels pass. */
-  --info-bg: oklch(0.925 0.04 220.77);
+  /* The current nav link: small text that only sits on --gradient-1 (4.56:1 there). */
+  --accent-text-nav: oklch(0.465 0.156 37.13);
   /* Fill for buttons and selected chips with white text (6.5:1). */
   --accent-bg: oklch(0.5 0.17 36);
   --accent-bg-hover: oklch(0.44 0.16 36);
@@ -113,7 +113,7 @@
   --line: oklch(0.32 0.01 250);
   --accent-text: oklch(0.8 0.15 69);
   --accent-text-large: oklch(0.8 0.15 69);
-  --info-bg: var(--surface);
+  --accent-text-nav: oklch(0.8 0.15 69);
   --badge-bg: color-mix(in oklab, var(--brand-700) 25%, transparent);
   --badge-ink: var(--brand-500);
 

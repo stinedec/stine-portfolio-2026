@@ -125,7 +125,7 @@ const { locale } = useI18n()
 }
 
 .portfolio-card:hover .portfolio-card__link {
-  color: var(--accent-text);
+  color: var(--accent-text-large);
 }
 
 /* Stretches the link over the whole card. */

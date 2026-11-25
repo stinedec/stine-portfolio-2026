@@ -12,11 +12,12 @@
     "company": "ExploreLearning",
     "description": [
       "Shake It Off is a STEM case that teaches tectonics by having students design an earthquake warning system. I built the culminating piece of interactivity: an animated simulation where students choose sensor types and locations, then test their network against earthquakes from different epicenters. Sensors trigger as the waves reach them, and students see how quickly their system responded and how many people it warned in time.",
-      "I inherited the project when a coworker left and became its sole developer, working with a content designer, an art director and a project manager. I finished the simulation in Vue 2 and TypeScript with d3.js and Grapes.js, tying it to the case's existing data so every student's design produced results that supported the lesson's learning goals.",
+      "I inherited the project when a coworker left and became its sole developer, working with a content designer, an art director, and a project manager. I finished the simulation in Vue 2 and TypeScript with d3.js and Grapes.js, tying it to the case's existing data so every student's design produced results that supported the lesson's learning goals.",
       "The project was 6 months behind schedule when I took it over. I shipped it in 8 weeks."
     ],
     "technologies": [
-      "HTML, CSS",
+      "HTML",
+      "CSS",
       "Vue 2",
       "Grapes.js",
       "d3.js",
@@ -57,9 +58,9 @@
     "company": "ExploreLearning",
     "client": "NASA",
     "description": [
-      "Save a Satellite is a STEM case where students act as spacecraft navigation engineers. They launch a communication satellite into a stable orbit, then steer it out of the path of space debris using what they've learned about gravity and Newton's laws. I built the orbit simulation at the heart of the case.",
-      "Students adjust the satellite's velocity and the pull of gravity, and the simulation shows the result in real time: the satellite crashes back to Earth, settles into a stable orbit or flies off into space, depending on the size and direction of their changes. The main challenge was to depict the physics in a way that was simple enough for the grade level and visually congruant with the animations built by the art team, while also being true to the core scientific principles we were teaching.",
-      "As the sole developer, I built it in Vue 2 and TypeScript with p5.js and Grapes.js, working with a content designer, an art director, and animator, and a project manager."
+      "Save a Satellite is a STEM case that ExploreLearning built in collaboration with NASA, where students act as spacecraft navigation engineers. They launch a communication satellite into a stable orbit, then steer it out of the path of space debris using what they've learned about gravity and Newton's laws. I built the orbit simulation at the heart of the case.",
+      "Students adjust the satellite's velocity and the pull of gravity, and the simulation shows the result in real time: the satellite crashes back to Earth, settles into a stable orbit or flies off into space, depending on the size and direction of their changes. The main challenge was to depict the physics in a way that was simple enough for the grade level and visually congruent with the animations built by the art team, while also being true to the core scientific principles we were teaching.",
+      "As the sole developer, I built it in Vue 2 and TypeScript with p5.js and Grapes.js, working with a content designer, an art director, an animator, and a project manager."
     ],
     "technologies": ["Vue 2", "Grapes.js", "p5.js", "TypeScript"],
     "videos": [
@@ -85,7 +86,7 @@
     "company": "ExploreLearning",
     "description": [
       "In Protecting Permafrost: Heat Transfer Highway, students play civil engineers protecting a highway in an Arctic Alaskan town, where thawing permafrost threatens the ground it's built on. They design heat transfer solutions to keep the ground frozen in a warming climate. I built the interactive design activity where students test their ideas.",
-      "Students drag materials onto SVG diagrams of the sections of road, and the activity grades their design against a rubric, giving feedback on how well the students allocated their material budget. The biggest challenge was in managing the precision of interactivity necessary within a component that needed to work within our preexisting grapes.js interface. The component needed to be placeable on multiple pages and to work with varying amount of materials while delivering consistent results.",
+      "Students drag materials onto SVG diagrams of the sections of road, and the activity grades their design against a rubric, giving feedback on how well the students allocated their material budget. The biggest challenge was in managing the precision of interactivity necessary within a component that needed to work within our preexisting Grapes.js interface. The component needed to be placeable on multiple pages and to work with varying amounts of materials while delivering consistent results.",
       "As the sole developer, I built it in Vue 2 and TypeScript with Grapes.js, working with a content and design team."
     ],
     "technologies": ["Vue 2", "Grapes.js", "TypeScript"],
@@ -134,7 +135,7 @@
     "headerImage": "portfolio/nrg-desktop-mobile.png",
     "headerImageAlt": "Placeholder preview for NRG Advocacy",
     "summary": "An advocacy project focused on energy policy and community engagement",
-    "tags": ["Front end"],
+    "tags": ["Front End"],
     "role": "Sole front-end developer",
     "company": "LGND",
     "client": "NRG",
@@ -142,7 +143,7 @@
       "NRG needed a website to promote its grassroots advocacy work on energy policy topics. I built the site's front end from the designer's mockups in a Sketch file, making it fully responsive, with a PHP back end.",
       "I was the sole front-end developer, working with LGND's designer and project manager."
     ],
-    "technologies": ["PHP", "HTML, CSS", "Git (Version Control)"]
+    "technologies": ["PHP", "HTML", "CSS", "Git (Version Control)"]
   },
   {
     "slug": "ending-pandemics-map",
@@ -153,16 +154,16 @@
     "headerImage": "portfolio/ending-pandemics-desktop-mobile.png",
     "headerImageAlt": "Placeholder preview for Ending Pandemics Map",
     "summary": "An interactive map visualizing efforts to end pandemics",
-    "tags": ["Front end", "Interactive"],
+    "tags": ["Front End", "Interactive"],
     "role": "Sole front-end developer",
     "company": "LGND",
     "client": "Ending Pandemics",
     "description": [
       "Ending Pandemics, a nonprofit working on disease surveillance and outbreak prevention, wanted to spread awareness of pandemics throughout history and what measures were taken to mitigate the spread of disease. With the agency LGND, I built an interactive map of that data.",
-      "The map is built with d3.js and jQuery. Visitors can pan and zoom on a global map to see locations of previous outbreaks, filter data to view specific program types, and click a program to see more details. Special care was taken to make sure the interactivity translated to mobile devices.",
+      "The map is built with d3.js and jQuery. Visitors can pan and zoom on a global map to see locations of previous response programs to outbreaks, filter data to view specific program types, and click a program to see more details. Special care was taken to make sure the interactivity translated to mobile devices.",
       "I was the sole front-end developer, working with LGND's designer and project manager."
     ],
-    "technologies": ["jQuery", "d3.js", "HTML, CSS", "Git (Version Control)"]
+    "technologies": ["jQuery", "d3.js", "HTML", "CSS", "Git (Version Control)"]
   },
   {
     "slug": "toyota-quizzes",
@@ -173,27 +174,27 @@
     "headerImage": "portfolio/toyota-biden-desktop-mobile.png",
     "headerImageAlt": "Placeholder preview for Toyota Quizzes",
     "summary": "Two animated quizzes about political literacy for Toyota",
-    "tags": ["Front end", "Interactive"],
+    "tags": ["Front End", "Interactive"],
     "role": "Sole front-end developer",
     "company": "LGND",
     "client": "Toyota",
     "description": [
-      "With the agency LGND, I built a series of two animated quizzes for Toyota about political literacy, launched around the 2022 midterm elections to encourage civic engagement.",
-      "Each quiz uses GreenSock animations to load questions and spin answers around in the fashion of a find-the-match style game, built with EJS templates, Sass, jQuery and a PHP back end. One quiz questioned visitors on members of Biden's administration, and another focused on notable Hispanic politicians for Hispanic Heritage Month. The process involved developing a central template that was then extended out for each separate quiz.",
+      "With the agency LGND, I built a series of two animated quizzes for Toyota about political literacy, launched leading up to the 2022 midterm elections to encourage civic engagement.",
+      "Each quiz uses GreenSock animations to load questions and spin answers around in the fashion of a find-the-match style game, built with EJS templates, Sass, jQuery, and a PHP back end. One quiz questioned visitors on members of Biden's administration, and another focused on notable Hispanic politicians for Hispanic Heritage Month. The process involved developing a central template that was then extended out for each separate quiz.",
       "I was the sole front-end developer, working with LGND's designer and project manager."
     ],
-    "technologies": ["EJS, Sass", "PHP", "GreenSock", "jQuery", "Git (Version Control)"]
+    "technologies": ["EJS", "Sass", "PHP", "GreenSock", "jQuery", "Git (Version Control)"]
   },
   {
     "slug": "sparkfun-alc",
-    "title": "SparkFun ALC",
+    "title": "SparkFun À La Carte",
     "date": "2020-11-27",
     "cardImage": "portfolio/sparkfun-alc.png",
     "cardImageAlt": "Placeholder preview for SparkFun ALC",
     "headerImage": "portfolio/sparkfun-alc-desktop-mobile.png",
     "headerImageAlt": "Placeholder preview for SparkFun ALC",
     "summary": "An application built for SparkFun's À La Carte circuit board design system",
-    "tags": ["Front end"],
+    "tags": ["Front End"],
     "role": "Full-stack developer",
     "company": "SparkFun Electronics",
     "description": [
@@ -205,7 +206,8 @@
       "Angular 4",
       "Node.js",
       "MongoDB",
-      "HTML, CSS",
+      "HTML",
+      "CSS",
       "jQuery",
       "Git (Version Control)"
     ]
@@ -219,13 +221,13 @@
     "headerImage": "portfolio/GWP-desktop-mobile.png",
     "headerImageAlt": "Cropped screenshot of GWP Regional Mobility",
     "summary": "A project focused on regional mobility solutions developed with LGND",
-    "tags": ["Front end"],
+    "tags": ["Front End"],
     "role": "Sole front-end developer",
     "company": "LGND",
     "client": "Greater Washington Partnership",
     "description": [
       "Greater Washington Partnership, a group of business leaders in the Baltimore–Washington–Richmond region, published a 7-solution plan to improve how people get around the greater Washington, D.C. area. With the agency LGND, I built an 8-page website that explains the plan.",
-      "The site combines the plan's text with supporting video and map elements, built with HTML, Sass and jQuery and fully responsive. It was an exciting challenge to build a UI that was expressly designed to support the information it was conveying, making a complicated plan easier to digest in parts.",
+      "The site combines the plan's text with supporting video and map elements, built with HTML, Sass, and jQuery and fully responsive. It was an exciting challenge to build a UI that was expressly designed to support the information it was conveying, making a complicated plan easier to digest in parts.",
       "I was the sole front-end developer, working with LGND's designer and project manager."
     ],
     "gallery": [
@@ -238,7 +240,7 @@
         "alt": "Placeholder gallery image 2"
       }
     ],
-    "technologies": ["HTML, Sass", "jQuery", "Git (Version Control)"]
+    "technologies": ["HTML", "Sass", "jQuery", "Git (Version Control)"]
   },
   {
     "slug": "aireon-style-guide",
@@ -249,7 +251,7 @@
     "headerImage": "portfolio/aireon-style-guide.png",
     "headerImageAlt": "Placeholder preview for Aireon Style Guide",
     "summary": "Visual style guide for internal use at Aireon",
-    "tags": ["Front end"],
+    "tags": ["Front End"],
     "role": "Sole front-end developer",
     "company": "LGND",
     "client": "Aireon",
@@ -269,13 +271,13 @@
     "headerImage": "portfolio/net10-st-desktop.png",
     "headerImageAlt": "Placeholder preview for Net10 Leasing",
     "summary": "Marketing websites for Net10 Wireless and Straight Talk Wireless",
-    "tags": ["Front end"],
+    "tags": ["Front End"],
     "role": "Sole front-end developer",
     "company": "IMM",
     "client": "Net10 Wireless and Straight Talk Wireless",
     "description": [
       "Net10 Wireless and Straight Talk Wireless, two prepaid phone brands, each launched a phone leasing program and needed a marketing site to explain it. With the agency IMM, I built the front end of both sites.",
-      "I turned the designs into responsive HTML, CSS and jQuery. Both sites shared similar features, so the project was built as a common base with CSS themes that were easy to switch between.",
+      "I turned the designs into responsive HTML, CSS, and jQuery. Both sites shared similar features, so the project was built as a common base with CSS themes that were easy to switch between.",
       "I was the sole front-end developer, working with IMM's designer and project manager."
     ],
     "gallery": [
@@ -284,7 +286,7 @@
         "alt": "Placeholder preview for Straight Talk Leasing"
       }
     ],
-    "technologies": ["HTML, CSS", "jQuery", "Git (Version Control)"]
+    "technologies": ["HTML", "CSS", "jQuery", "Git (Version Control)"]
   },
   {
     "slug": "tracfone-html5-banners",
@@ -295,7 +297,7 @@
     "headerImage": "portfolio/tracfone-banners.png",
     "headerImageAlt": "Placeholder preview for Tracfone HTML5 Banners",
     "summary": "HTML5 banner ads for Tracfone",
-    "tags": ["Front end", "Motion Design"],
+    "tags": ["Front End", "Motion Design"],
     "role": "Lead front-end developer",
     "company": "IMM",
     "client": "Tracfone",
@@ -304,7 +306,7 @@
       "I built out many of the banners myself and led a team of 3 developers to complete all the suites, setting up shared GreenSock animation patterns and minifying all image assets so every banner stayed consistent and quick to load.",
       "We delivered all 32 suites in 6 weeks."
     ],
-    "technologies": ["HTML, CSS", "GreenSock", "Git (Version Control)"]
+    "technologies": ["HTML", "CSS", "GreenSock", "Git (Version Control)"]
   },
   {
     "slug": "social-explorer",
@@ -315,11 +317,13 @@
     "headerImage": "portfolio/social-explorer.png",
     "headerImageAlt": "Placeholder preview for Social Explorer",
     "summary": "Thesis project for my Master's degree in Emergent Digital Practices",
-    "tags": ["Front end", "Motion Design", "Interactive"],
-    "role": "Sole front-end developer",
+    "tags": ["Front End", "Motion Design", "Interactive"],
+    "role": "Master's candidate",
     "description": [
-      "Conceptualized and built an interactive app for exploring meaning behind social interaction for my master's thesis project in Emergent Digital Practices at the University of Denver."
+      "For my Master's thesis in Emergent Digital Practices, I built an interactive Node.js app that I titled Social Explorer. Users control an abstracted avatar and proceed through a series of simulated social environments meant to visualize feelings of social anxiety and create a visual language for unspoken interactions.",
+      "I built this project with Express, Node.js, and p5.js. My thesis advisors were Laleh Mehran and Chris Coleman.",
+      "Abstract: For my project, I sought to develop a web application that consciously harnesses its rhetorical power in order to develop a visual and procedural form of diffractive representation, an alternative to a commonly held and unquestioned reflexive representation of the world. A reflexive representation measures sameness; a diffractive representation measures patterns of difference. My project, Social Explorer, is an online experience in which the user progresses through a series of simulated social environments in an attempt to create relationships with others. I demonstrate diffractive entanglements through the depiction of social anxieties felt in everyday interactions. The goal of this project is to visually and algorithmically represent sensations of social friction in a playable experience in order to gain a visual understanding of diffractive relationships."
     ],
-    "technologies": ["Node.js", "p5.js", "HTML, CSS", "Git (Version Control)"]
+    "technologies": ["Express", "Node.js", "p5.js", "HTML", "CSS", "Git (Version Control)"]
   }
 ]

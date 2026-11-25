@@ -12,14 +12,14 @@ import {
 
 const oldest = items.at(-1)!
 
-test('home page shows the intro and the nine most recent portfolio items', async ({ page }) => {
+test('home page shows the intro and the six most recent portfolio items', async ({ page }) => {
   await page.goto('/')
   // One main heading for screen readers. It's visually hidden; the styled
   // title shown instead is hidden from screen readers.
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(en.home.greeting)
 
   const recentWork = page.getByRole('region', { name: 'Recent work' })
-  await expect(recentWork.getByRole('article')).toHaveCount(Math.min(9, items.length))
+  await expect(recentWork.getByRole('article')).toHaveCount(Math.min(6, items.length))
   await expect(recentWork.getByRole('article').first().getByRole('heading')).toHaveText(
     items[0]!.title,
   )

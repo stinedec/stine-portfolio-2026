@@ -21,15 +21,15 @@
       "heading": "Lo que aporto",
       "design": {
         "title": "Diseño",
-        "text": "Pensamiento de diseño y buen ojo visual. Hago prototipos en Figma y convierto diseños en interfaces pulidas y adaptables, en estrecha colaboración con equipos de diseño y contenido."
+        "text": "Pensamiento de diseño y un buen ojo visual."
       },
       "accessibility": {
         "title": "Accesibilidad",
-        "text": "Desarrollo conforme a WCAG 2.1 AA desde el principio. Dirigí una auditoría de accesibilidad de una biblioteca de 34 productos educativos interactivos, hice prototipos de soluciones y entregué un plan de mejoras."
+        "text": "Desarrollo conforme a WCAG 2.1 AA desde el principio."
       },
       "interactive": {
         "title": "Desarrollo interactivo",
-        "text": "Experiencias ricas y lúdicas con Vue y TypeScript, usando bibliotecas creativas como d3.js, pixi.js, p5.js y GreenSock."
+        "text": "Experiencias ricas y lúdicas."
       }
     }
   },
@@ -56,7 +56,7 @@
     "downloadVideo": "Descárgalo en su lugar."
   },
   "about": {
-    "title": "Acerca de mí",
+    "title": "Acerca de",
     "intro": [
       "Soy ingeniera front-end sénior en Boulder, Colorado, con más de 10 años de experiencia creando experiencias web accesibles e interactivas.",
       "Tengo una maestría en Emergent Digital Practices. Desde entonces he creado sitios de marketing, mapas interactivos, visualizaciones de datos y cuestionarios animados para clientes de agencias, componentes front-end y API para un producto SaaS en SparkFun Electronics y, más recientemente, simulaciones científicas interactivas para estudiantes.",
@@ -68,7 +68,7 @@
     "highlights": {
       "stem": {
         "title": "Simulaciones STEM interactivas en ExploreLearning",
-        "text": "Simulaciones científicas interactivas para estudiantes, creadas con Vue 2 y TypeScript con d3.js, p5.js y Grapes.js: órbitas de satélites, un sistema de alerta sísmica, ondas sonoras y la protección del permafrost."
+        "text": "Simulaciones científicas interactivas para estudiantes, creadas con Vue 2 y TypeScript con d3.js, p5.js y Grapes.js: órbitas de satélites, un sistema de alerta sísmica, ondas sonoras y la protección del permafrost. Una de ellas, Save a Satellite, se creó en colaboración con la NASA."
       },
       "sparkfun": {
         "title": "SparkFun Electronics",
@@ -80,7 +80,7 @@
       },
       "education": {
         "title": "Maestría en Emergent Digital Practices",
-        "text": "Mi proyecto de tesis fue el front-end de una plataforma de visualización de datos para Social Explorer, creado con Node.js y p5.js."
+        "text": "Para mi tesis, creé Social Explorer, una aplicación web interactiva en la que los usuarios recorren entornos sociales simulados que visualizan la ansiedad social. Creada con Express, Node.js y p5.js."
       }
     },
     "toolsHeading": "Herramientas con las que he trabajado",

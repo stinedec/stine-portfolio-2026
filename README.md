@@ -4,7 +4,7 @@ My portfolio site, built from my Vue 3 + Vite starter.
 
 ## Editing portfolio items
 
-Portfolio items live in [`src/data/portfolio.json`](src/data/portfolio.json). The homepage shows the nine most recent, sorted by `date`, with a "See all work" link to `/work`, which shows every item.
+Portfolio items live in [`src/data/portfolio.json`](src/data/portfolio.json). The homepage shows the six most recent, sorted by `date`, with a "See all work" link to `/work`, which shows every item.
 
 1. Put two images in `public/portfolio/`: a card image for the project's card on the homepage and Work page, and a header image for the top of the project's own page. Both show at 4:3, so an image around 1200×900 works best. They can be the same file.
 2. Add an entry to `portfolio.json`:

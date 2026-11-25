@@ -11,7 +11,7 @@ import { getRecentItems, localizeItem, portfolioItems } from '@/data/portfolio'
 const { t, locale } = useI18n()
 
 const recentItems = computed(() =>
-  getRecentItems(portfolioItems, 9).map((item) => localizeItem(item, locale.value)),
+  getRecentItems(portfolioItems, 6).map((item) => localizeItem(item, locale.value)),
 )
 </script>
 
